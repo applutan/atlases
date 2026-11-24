@@ -135,7 +135,8 @@ def main():
     if args.files:
         notes = args.files
     else:
-        notes = sorted(glob.glob("notes/*.md") + ["PROJECT_CONTEXT.md", "README.md"])
+        candidates = glob.glob("notes/*.md") + glob.glob("*.md")
+        notes = sorted(list(set(f for f in candidates if os.path.exists(f))))
 
     all_ok = True
     for note in notes:

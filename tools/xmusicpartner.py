@@ -44,18 +44,18 @@ except ImportError:
 # Standard Display Positions for Unpitched Percussion Voices
 # Display on standard percussion staff (Line 1 = E4 bottom, Line 5 = F5 top)
 PERCUSSION_DISPLAY_MAP = [
-    # (Step, Octave, Notehead, Instrument Name)
-    ("F", 4, "normal", "Bass Drum 1 (Kick)"),     # Space 1 (bottom)
-    ("C", 5, "normal", "Acoustic Snare"),         # Space 3
-    ("G", 5, "x",      "Closed Hi-Hat"),          # Space above line 5
-    ("E", 5, "normal", "Claves / Wood Block"),    # Space 4
-    ("A", 4, "normal", "Low Floor Tom"),          # Space 2
-    ("G", 5, "circle-x","Open Hi-Hat"),          # Space above line 5 (open)
-    ("D", 5, "triangle","Cowbell"),               # Line 4
-    ("A", 5, "diamond","Tambourine"),             # Line above top
-    ("D", 5, "normal", "Mid Tom"),                # Line 4
-    ("F", 5, "normal", "High Tom"),               # Line 5
-    ("B", 4, "slash",  "Hand Clap"),              # Line 3
+    # (Step, Octave, Notehead, Instrument Name, MIDI Note)
+    ("F", 4, "normal", "Bass Drum 1 (Kick)", 36),     # Space 1 (bottom)
+    ("C", 5, "normal", "Acoustic Snare", 38),         # Space 3
+    ("G", 5, "x",      "Closed Hi-Hat", 42),          # Space above line 5
+    ("E", 5, "normal", "Claves / Wood Block", 75),    # Space 4
+    ("A", 4, "normal", "Low Floor Tom", 41),          # Space 2
+    ("G", 5, "circle-x","Open Hi-Hat", 46),           # Space above line 5 (open)
+    ("D", 5, "triangle","Cowbell", 56),               # Line 4
+    ("A", 5, "diamond","Tambourine", 54),             # Line above top
+    ("D", 5, "normal", "Mid Tom", 47),                # Line 4
+    ("F", 5, "normal", "High Tom", 50),               # Line 5
+    ("B", 4, "slash",  "Hand Clap", 39),              # Line 3
 ]
 
 def parse_args():
@@ -181,22 +181,36 @@ def build_musicxml(blocks: List[List[int]], n: int, k: int, bars: int = 2, bpm: 
     if score_type == "multi":
         for idx, blk in enumerate(sorted_blocks):
             pid = f"P{idx + 1}"
-            disp_step, disp_oct, nhead, inst_name = PERCUSSION_DISPLAY_MAP[idx % len(PERCUSSION_DISPLAY_MAP)]
+            disp_step, disp_oct, nhead, inst_name, midi_note = PERCUSSION_DISPLAY_MAP[idx % len(PERCUSSION_DISPLAY_MAP)]
             strides = compute_block_strides(blk, n)
             sp = ET.SubElement(part_list, "score-part", id=pid)
             ET.SubElement(sp, "part-name").text = f"Voice {idx + 1}: {inst_name}"
             ET.SubElement(sp, "part-abbreviation").text = f"V{idx + 1}"
-            sc_inst = ET.SubElement(sp, "score-instrument", id=f"{pid}-I1")
+            inst_id = f"{pid}-I1"
+            sc_inst = ET.SubElement(sp, "score-instrument", id=inst_id)
             ET.SubElement(sc_inst, "instrument-name").text = inst_name
+            midi_inst = ET.SubElement(sp, "midi-instrument", id=inst_id)
+            ET.SubElement(midi_inst, "midi-channel").text = "10"
+            ET.SubElement(midi_inst, "midi-program").text = "1"
+            ET.SubElement(midi_inst, "midi-unpitched").text = str(midi_note)
+            ET.SubElement(midi_inst, "volume").text = "78.7402"
+            ET.SubElement(midi_inst, "pan").text = "0"
     else:
         # Consolidated drum kit staff
         sp = ET.SubElement(part_list, "score-part", id="P1")
         ET.SubElement(sp, "part-name").text = "Mosaic Percussion Ensemble"
         ET.SubElement(sp, "part-abbreviation").text = "Perc."
         for idx in range(k):
-            disp_step, disp_oct, nhead, inst_name = PERCUSSION_DISPLAY_MAP[idx % len(PERCUSSION_DISPLAY_MAP)]
-            sc_inst = ET.SubElement(sp, "score-instrument", id=f"P1-I{idx + 1}")
+            disp_step, disp_oct, nhead, inst_name, midi_note = PERCUSSION_DISPLAY_MAP[idx % len(PERCUSSION_DISPLAY_MAP)]
+            inst_id = f"P1-I{idx + 1}"
+            sc_inst = ET.SubElement(sp, "score-instrument", id=inst_id)
             ET.SubElement(sc_inst, "instrument-name").text = f"Voice {idx + 1}: {inst_name}"
+            midi_inst = ET.SubElement(sp, "midi-instrument", id=inst_id)
+            ET.SubElement(midi_inst, "midi-channel").text = "10"
+            ET.SubElement(midi_inst, "midi-program").text = "1"
+            ET.SubElement(midi_inst, "midi-unpitched").text = str(midi_note)
+            ET.SubElement(midi_inst, "volume").text = "78.7402"
+            ET.SubElement(midi_inst, "pan").text = "0"
 
     # Parts & Measures
     if score_type == "multi":
@@ -204,7 +218,7 @@ def build_musicxml(blocks: List[List[int]], n: int, k: int, bars: int = 2, bpm: 
             pid = f"P{blk_idx + 1}"
             part_elem = ET.SubElement(score, "part", id=pid)
             blk_set = set(blk)
-            disp_step, disp_oct, nhead, inst_name = PERCUSSION_DISPLAY_MAP[blk_idx % len(PERCUSSION_DISPLAY_MAP)]
+            disp_step, disp_oct, nhead, inst_name, midi_note = PERCUSSION_DISPLAY_MAP[blk_idx % len(PERCUSSION_DISPLAY_MAP)]
             
             for bar in range(bars):
                 meas = ET.SubElement(part_elem, "measure", number=str(bar + 1))
@@ -251,6 +265,7 @@ def build_musicxml(blocks: List[List[int]], n: int, k: int, bars: int = 2, bpm: 
                         ET.SubElement(unp, "display-step").text = disp_step
                         ET.SubElement(unp, "display-octave").text = str(disp_oct)
                         ET.SubElement(note_elem, "duration").text = "1"
+                        ET.SubElement(note_elem, "instrument", id=f"{pid}-I1")
                         ET.SubElement(note_elem, "voice").text = "1"
                         ET.SubElement(note_elem, "type").text = "16th"
                         ET.SubElement(note_elem, "stem").text = "up"
@@ -311,12 +326,13 @@ def build_musicxml(blocks: List[List[int]], n: int, k: int, bars: int = 2, bpm: 
 
             for step in range(n):
                 v_idx = step_to_voice[step]
-                disp_step, disp_oct, nhead, inst_name = PERCUSSION_DISPLAY_MAP[v_idx % len(PERCUSSION_DISPLAY_MAP)]
+                disp_step, disp_oct, nhead, inst_name, midi_note = PERCUSSION_DISPLAY_MAP[v_idx % len(PERCUSSION_DISPLAY_MAP)]
                 note_elem = ET.SubElement(meas, "note")
                 unp = ET.SubElement(note_elem, "unpitched")
                 ET.SubElement(unp, "display-step").text = disp_step
                 ET.SubElement(unp, "display-octave").text = str(disp_oct)
                 ET.SubElement(note_elem, "duration").text = "1"
+                ET.SubElement(note_elem, "instrument", id=f"P1-I{v_idx + 1}")
                 ET.SubElement(note_elem, "voice").text = "1"
                 ET.SubElement(note_elem, "type").text = "16th"
                 ET.SubElement(note_elem, "stem").text = "up"
