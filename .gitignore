@@ -14,6 +14,13 @@
 *.fls
 *.fdb_latexmk
 
+# Intermediate plate chunks
+unimosatlas/plates/tetramers_part*.pdf
+
+# Compiled C++ executables
+unimosatlas/tools/build_tetramers_atlas
+unimosatlas/tools/generate_all_tetramers
+
 # Python cache & temp files
 __pycache__/
 *.pyc

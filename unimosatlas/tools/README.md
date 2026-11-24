@@ -99,18 +99,18 @@ Shell automation scripts for parallel LaTeX compilation of tetramer plate chunks
 
 ## 4. Musical Engraving & Audio Synthesis (Shared Toolsuite)
 
-Symlinked into the project-wide toolchain at [`atlases/tools/`](../../tools/). For the complete acoustic mapping guide, rhythmic analysis, and advanced CLI parameters, see [`atlases/tools/PERCUSSION_SUITE.md`](../../tools/PERCUSSION_SUITE.md).
+Located in the repository-wide toolchain at [`atlases/tools/`](../../tools/). For the complete acoustic mapping guide, rhythmic analysis, and advanced CLI parameters, see [`atlases/tools/PERCUSSION_SUITE.md`](../../tools/PERCUSSION_SUITE.md).
 
-* **`midipartner.py`** (aliased as `midipart` / `partition_to_midi.py`):
+* **`midipartner.py`**:
   Synthesizes any valid mosaic partition into a multi-track General MIDI percussion loop on Channel 10:
   ```bash
-  python3 unimosatlas/tools/midipartner.py -p "/0279/18AF/35CE/46BD/" -o loop.mid --bpm 120 -b 4
+  python3 tools/midipartner.py -p "/0279/18AF/35CE/46BD/" -o loop.mid --bpm 120 -b 4
   ```
 
-* **`xmusicpartner.py`** (aliased as `xmusicpart` / `partition_to_musicxml.py`):
+* **`xmusicpartner.py`**:
   Engraves deterministic, vendor-neutral W3C MusicXML 3.1/4.0 scores from any partition, importing seamlessly into MuseScore, Dorico, Sibelius, or GNU LilyPond:
   ```bash
-  python3 unimosatlas/tools/xmusicpartner.py -p "/0279/18AF/35CE/46BD/" -o score.musicxml --score-type multi
+  python3 tools/xmusicpartner.py -p "/0279/18AF/35CE/46BD/" -o score.musicxml --score-type multi
   ```
 
 * **`generate_monomer_midi.py`**:
@@ -147,14 +147,14 @@ Provides foundational helpers: `get_mosaic_sort_key()`, `is_block_symmetric()`, 
 
 ## 7. Monograph Quality Assurance Tools
 
-* **`audit_british_spelling.py`**:
+* **`audit_british_spelling.py`** (located in `tools/`):
   Enforces British English spelling conventions across all LaTeX monograph chapters (`realisable`, `factorisation`, `characterisation`, `stabiliser`, `behaviour`, `catalogue`):
   ```bash
-  python3 unimosatlas/tools/audit_british_spelling.py unimosatlas/sec
+  python3 tools/audit_british_spelling.py unimosatlas/sec
   ```
 
-* **`audit_display_math.py`**:
+* **`audit_display_math.py`** (located in `tools/`):
   Audits all TeX files to ensure no standalone display math environments (such as `equation`, `align`, or `\[...\]`) end with trailing terminal punctuation bacilli (`.` or `,`):
   ```bash
-  python3 unimosatlas/tools/audit_display_math.py unimosatlas/sec
+  python3 tools/audit_display_math.py unimosatlas/sec
   ```
