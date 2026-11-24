@@ -1,0 +1,20 @@
+% TikZ Plate: The Complete D_4 Universe (z_2^2 on Z_4)
+% 2 Monomers: M_1 (cross, |O|=1) and M_2 (parallel chords, |O|=2)
+\begin{tikzpicture}[>=latex, line join=round, line cap=round, scale=1.0]
+
+  % --- Monomer M1 ---
+  \draw[draw=blue!20!black!25, fill=blue!1.5!black!0.8, rounded corners=6pt, line width=0.45pt] (1.05, -1.35) rectangle (3.95, 1.35);
+  \node[anchor=west, fill=white, draw=blue!30!black!30, rounded corners=2pt, inner sep=1.8pt, font=\small\bfseries\sffamily] at (1.23, 1.35) {1};
+  \node[anchor=east, font=\tiny\color{black!55}] at (3.75, -1.15) {1};
+    \draw[gray!40, line width=0.25pt] (2.50,0.90) -- (3.40,0.00) -- (2.50,-0.90) -- (1.60,-0.00) -- cycle;
+    \draw[mosaicblue!80!black, line width=1.1pt] (2.50,0.90) -- (2.50,-0.90);
+    \draw[mosaicblue!80!black, line width=1.1pt] (3.40,0.00) -- (1.60,-0.00);
+
+  % --- Monomer M2 ---
+  \draw[draw=blue!20!black!25, fill=blue!1.5!black!0.8, rounded corners=6pt, line width=0.45pt] (5.25, -1.35) rectangle (8.15, 1.35);
+  \node[anchor=west, fill=white, draw=blue!30!black!30, rounded corners=2pt, inner sep=1.8pt, font=\small\bfseries\sffamily] at (5.43, 1.35) {2};
+  \node[anchor=east, font=\tiny\color{black!55}] at (7.95, -1.15) {2};
+    \draw[gray!40, line width=0.25pt] (6.70,0.90) -- (7.60,0.00) -- (6.70,-0.90) -- (5.80,-0.00) -- cycle;
+    \draw[mosaicblue!80!black, line width=1.1pt] (6.70,0.90) -- (7.60,0.00);
+    \draw[mosaicblue!80!black, line width=1.1pt] (6.70,-0.90) -- (5.80,-0.00);
+\end{tikzpicture}

@@ -1,0 +1,412 @@
+% TikZ code for the 14 Monomer Mosaics of z_4^4 on Z_16
+% Strictly ordered by the 5-tier natural geometric cascade
+% Arranged in 2 rows of 7 mosaics
+% Oriented consistently with polyatlas (vertex 0 at zenith, clockwise)
+\begin{tikzpicture}[>=latex, line join=round, line cap=round, scale=0.78]
+  % Monomer #1 (D_16 orbit size 1, sym=4, energy=768)
+  \begin{scope}[shift={(0.00, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.875,0.000) -- (0.000,-0.875) -- (-0.875,-0.000) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.875,0.000) -- (0.000,-0.875) -- (-0.875,-0.000) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {1};
+  \end{scope}
+  % Monomer #2 (D_16 orbit size 4, sym=4, energy=848)
+  \begin{scope}[shift={(2.45, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.335,-0.808) -- (-0.619,-0.619) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.335,-0.808) -- (-0.619,-0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.619,-0.619) -- (-0.808,-0.335) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.619,-0.619) -- (-0.808,-0.335) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {4};
+  \end{scope}
+  % Monomer #3 (D_16 orbit size 4, sym=4, energy=832)
+  \begin{scope}[shift={(4.90, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.619,0.619) -- (0.000,-0.875) -- (-0.619,-0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.619,0.619) -- (0.000,-0.875) -- (-0.619,-0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.808,0.335) -- (-0.335,-0.808) -- (-0.808,-0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.808,0.335) -- (-0.335,-0.808) -- (-0.808,-0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {4};
+  \end{scope}
+  % Monomer #4 (D_16 orbit size 4, sym=4, energy=800)
+  \begin{scope}[shift={(7.35, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.619,0.619) -- (0.000,-0.875) -- (-0.619,-0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.619,0.619) -- (0.000,-0.875) -- (-0.619,-0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {4};
+  \end{scope}
+  % Monomer #5 (D_16 orbit size 16, sym=4, energy=824)
+  \begin{scope}[shift={(9.80, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.808,-0.335) -- (-0.619,-0.619) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.808,-0.335) -- (-0.619,-0.619) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {16};
+  \end{scope}
+  % Monomer #6 (D_16 orbit size 16, sym=4, energy=736)
+  \begin{scope}[shift={(12.25, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.808,0.335) -- (-0.335,-0.808) -- (-0.808,-0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.808,0.335) -- (-0.335,-0.808) -- (-0.808,-0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {16};
+  \end{scope}
+  % Monomer #7 (D_16 orbit size 16, sym=4, energy=736)
+  \begin{scope}[shift={(14.70, 0.00)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.335,-0.808) -- (-0.335,-0.808) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.335,-0.808) -- (-0.335,-0.808) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {16};
+  \end{scope}
+  % Monomer #8 (D_16 orbit size 16, sym=4, energy=704)
+  \begin{scope}[shift={(0.00, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,0.808) -- (0.808,-0.335) -- (-0.335,-0.808) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {16};
+  \end{scope}
+  % Monomer #9 (D_16 orbit size 32, sym=4, energy=704)
+  \begin{scope}[shift={(2.45, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (-0.335,-0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (-0.335,-0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.335,-0.808) -- (-0.619,-0.619) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.335,-0.808) -- (-0.619,-0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+  % Monomer #10 (D_16 orbit size 32, sym=4, energy=704)
+  \begin{scope}[shift={(4.90, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.335,-0.808) -- (0.000,-0.875) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.335,-0.808) -- (0.000,-0.875) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- (-0.875,-0.000) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- (-0.875,-0.000) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,-0.619) -- (-0.335,-0.808) -- (-0.808,-0.335) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (-0.335,-0.808) -- (-0.808,-0.335) -- (-0.619,0.619) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+  % Monomer #11 (D_16 orbit size 32, sym=2, energy=728)
+  \begin{scope}[shift={(7.35, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.875,0.000) -- (-0.335,-0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.875,0.000) -- (-0.335,-0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.808,-0.335) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.335,-0.808) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,-0.808) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.335,0.808) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+  % Monomer #12 (D_16 orbit size 32, sym=2, energy=712)
+  \begin{scope}[shift={(9.80, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.875,0.000) -- (-0.335,-0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.875,0.000) -- (-0.335,-0.808) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.619,-0.619) -- (-0.619,-0.619) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.808,-0.335) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,-0.335) -- (0.000,-0.875) -- (-0.875,-0.000) -- (-0.808,0.335) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+  % Monomer #13 (D_16 orbit size 32, sym=2, energy=704)
+  \begin{scope}[shift={(12.25, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.808,0.335) -- (0.000,-0.875) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.808,0.335) -- (0.000,-0.875) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- (-0.875,-0.000) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.875,0.000) -- (-0.619,-0.619) -- (-0.875,-0.000) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.808,-0.335) -- (0.335,-0.808) -- (-0.808,-0.335) -- (-0.808,0.335) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.619,-0.619) -- (-0.335,-0.808) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,-0.619) -- (-0.335,-0.808) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+  % Monomer #14 (D_16 orbit size 32, sym=2, energy=704)
+  \begin{scope}[shift={(14.70, -2.80)}]
+    \draw[gray!40, line width=0.35pt] (0.000,0.875) -- (0.335,0.808) -- (0.619,0.619) -- (0.808,0.335) -- (0.875,0.000) -- (0.808,-0.335) -- (0.619,-0.619) -- (0.335,-0.808) -- (0.000,-0.875) -- (-0.335,-0.808) -- (-0.619,-0.619) -- (-0.808,-0.335) -- (-0.875,-0.000) -- (-0.808,0.335) -- (-0.619,0.619) -- (-0.335,0.808) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.000,0.875) -- (0.335,0.808) -- (0.808,0.335) -- (0.000,-0.875) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.000,0.875) -- (0.335,0.808) -- (0.808,0.335) -- (0.000,-0.875) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (0.619,0.619) -- (0.808,-0.335) -- (-0.619,-0.619) -- (-0.808,-0.335) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.619,0.619) -- (0.808,-0.335) -- (-0.619,-0.619) -- (-0.808,-0.335) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.875,0.000) -- (0.619,-0.619) -- (-0.875,-0.000) -- (-0.619,0.619) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (0.335,-0.808) -- (-0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \draw[black!85, line width=0.45pt] (0.335,-0.808) -- (-0.335,-0.808) -- (-0.808,0.335) -- (-0.335,0.808) -- cycle;
+    \fill[black!80] (0.000,0.875) circle (0.5pt);
+    \fill[black!80] (0.335,0.808) circle (0.5pt);
+    \fill[black!80] (0.619,0.619) circle (0.5pt);
+    \fill[black!80] (0.808,0.335) circle (0.5pt);
+    \fill[black!80] (0.875,0.000) circle (0.5pt);
+    \fill[black!80] (0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (0.000,-0.875) circle (0.5pt);
+    \fill[black!80] (-0.335,-0.808) circle (0.5pt);
+    \fill[black!80] (-0.619,-0.619) circle (0.5pt);
+    \fill[black!80] (-0.808,-0.335) circle (0.5pt);
+    \fill[black!80] (-0.875,-0.000) circle (0.5pt);
+    \fill[black!80] (-0.808,0.335) circle (0.5pt);
+    \fill[black!80] (-0.619,0.619) circle (0.5pt);
+    \fill[black!80] (-0.335,0.808) circle (0.5pt);
+    \node[below=1.03cm, inner sep=0.5pt, font=\scriptsize] {32};
+  \end{scope}
+\end{tikzpicture}

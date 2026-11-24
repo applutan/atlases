@@ -1,0 +1,121 @@
+\section{The Four-Cycle Tetramers and Comparative Scale Models}
+\label{sec:tetramers-and-scale-models}
+
+The vast majority of composition mosaics on $\mathbb{Z}_{16}$ (specifically, $82{,}884$ of the $83{,}488$ dihedral orbits, or $99.28\%$) gather into closed harmonic four-cycles under the Galois multiplier $\mu_3 \colon x \mapsto 3x \pmod{16}$. Theorem~\ref{thm:spectral-decomposition-z44} establishes that exactly $20{,}721$ such affine tetramers exist.
+
+Within each tetramer cartouche, a complete orbit unfolds in a closed four-cycle:
+\begin{equation}
+\label{eqn:tetramer-progression}
+\mu_1(O) \quad\longrightarrow\quad \mu_3(O) \quad\longrightarrow\quad \mu_7(O) \quad\longrightarrow\quad \mu_5(O) \quad\longrightarrow\quad \mu_1(O)
+\end{equation}
+Every step corresponds to multiplication by $3 \pmod{16}$, closing after four iterations because $3^4 \equiv 81 \equiv 1 \pmod{16}$.
+
+\subsection{The Horizontal Linear Cartouche Geometry}
+
+To make the algebraic sequence immediately and unambiguously readable, each tetramer unfolds in a horizontal linear cartouche ($1 \times 4$ strip). The four mosaics progress naturally from left to right across the page:
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+\textbf{Position 1} & \textbf{Position 2} & \textbf{Position 3} & \textbf{Position 4} \\
+\midrule
+Root Orbit & First Dilation & Second Dilation (Involution) & Third Dilation (Inverse) \\
+$\mu_1 \colon x \mapsto x$ & $\mu_3 \colon x \mapsto 3x$ & $\mu_7 \colon x \mapsto 7x$ & $\mu_5 \colon x \mapsto 5x$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Reading from left to right traces the exact dilation sequence:
+\[
+\mu_1(O) \;\xrightarrow{\mu_3}\; \mu_3(O) \;\xrightarrow{\mu_3}\; \mu_7(O) \;\xrightarrow{\mu_3}\; \mu_5(O) \;\xrightarrow{\mu_3}\; \mu_1(O)
+\]
+This linear orientation completely eliminates the ambiguity of two-dimensional grid layouts (where reading order conflicts with cyclic flow), making the location of the canonical root mosaic ($\mu_1$) and each subsequent modular dilation immediately discernible to the eye.
+
+Following the clock-face geometry established in Section~\ref{sec:clock-face-orientation} (with vertex $0$ at 12~o'clock and indices advancing clockwise), each inscribed quadrilateral is strictly convex, with its vertices circularly ordered ($v_1 < v_2 < v_3 < v_4$) to avoid self-intersecting chords, and coloured according to the two-colour symmetry taxonomy:
+\begin{itemize}
+    \item \textbf{Symmetric Blocks (shaded blue)}: Polygons invariant under reflection on $\mathbb{Z}_{16}$, including regular squares $(4,4,4,4)$, rectangles $(1,7,1,7)$, and symmetric trapezoids.
+    \item \textbf{Chiral Blocks (shaded pink)}: Polygons lacking reflectional symmetry on $\mathbb{Z}_{16}$, occurring in enantiomorphic pairs.
+\end{itemize}
+
+\subsection{The 5-Tier Natural Geometric Sorting Cascade}
+
+To give the entire universe of $20{,}721$ tetramers a mathematically natural and visually striking progression, every cartouche is indexed according to a 5-tier hierarchical cascade:
+\begin{enumerate}
+    \item \textbf{Tier 1: Dihedral Orbit Size $|O|$}:
+    Arranged in ascending order of dihedral orbit size:
+    \[
+    |O| \in \{4, 8, 16, 32\}
+    \]
+    The highest-symmetry orbits ($|O| = 4$ and $|O| = 8$) appear at the very head of the catalogue. Among all $20{,}721$ tetramers, exactly $2$ have orbit size $4$, $21$ have orbit size $8$, $622$ have orbit size $16$, and the remaining $20{,}076$ have orbit size $32$.
+    
+    \item \textbf{Tier 2: Symmetric Block Count $s$}:
+    Within each orbit size, tetramers are sorted by the number of symmetric (achiral) blocks $s \in \{4, 3, 2, 1, 0\}$ in descending order ($4 \to 0$). This induces an unmistakable visual transition: pages begin in pure cobalt blue ($s = 4$), with pink chiral blocks appearing gradually until the final sections display completely chiral patterns ($s = 0$).
+    
+    \item \textbf{Tier 3: Chord Dispersion Energy $\mathcal{E}(P)$}:
+    Sorted in descending order of circular chord dispersion energy:
+    \[
+    \mathcal{E}(P) = \sum_{B \in P} \sum_{x < y \in B} \min((y - x) \bmod 16, (x - y) \bmod 16)^2
+    \]
+    High energy corresponds to maximally regular, dispersed polygons with long chords; low energy corresponds to tightly clustered chords.
+    
+    \item \textbf{Tier 4: Canonical Stride Profile Multiset}:
+    Grouping together tetramers whose inscribed quadrilaterals have identical unoriented cyclic stride profiles.
+    
+    \item \textbf{Tier 5: Canonical Lexicographic Tie-Breaker}:
+    Canonical sorted block-set representation on $\mathbb{Z}_{16}$.
+\end{enumerate}
+
+\subsection{Comparative Publishing Scale Models}
+
+Because printing all $20{,}721$ tetramers requires balancing visual resolution against total page count, three candidate publishing formats present themselves:
+\begin{enumerate}
+    \item \textbf{Model I: Micro-Atlas (220 Pages, 96 Tetramers / Page)}:
+    Mosaic diameter $\varnothing = 7.0\text{ mm}$ ($r = 0.35\text{ cm}$). Laid out in a $4 \times 24$ cartouche grid (4 linear strips across the page, 24 rows down, giving $20{,}721 / 96 \approx 216$ pages). Dispensing with perimeter vertex dots preserves crisp legibility even at this compact scale.
+    
+    \item \textbf{Model II: Luxury Monograph (432 Pages, 48 Tetramers / Page)}:
+    Mosaic diameter $\varnothing = 10.6\text{ mm}$ ($r = 0.53\text{ cm}$). Laid out in a $2 \times 24$ or $3 \times 16$ cartouche grid ($20{,}721 / 48 \approx 432$ pages). Strikes an ideal balance between individual mosaic legibility and library monograph format.
+    
+    \item \textbf{Model III: Gold-Tooled Leather-Bound (864 Pages in 2 Volumes, 24 Tetramers / Page)}:
+    Mosaic diameter $\varnothing = 15.0\text{ mm}$ ($r = 0.75\text{ cm}$). Laid out in a $2 \times 12$ cartouche grid ($20{,}721 / 24 \approx 864$ pages). A grand exhibition format where every individual polygon edge and chord angle is immediately discernible.
+\end{enumerate}
+
+Figure~\ref{fig:tetramer-scale-comparison} displays the opening twelve tetramers $T_1 \dots T_{12}$ across these three publishing densities, with four linear cartouches demonstrated at each respective scale.
+
+\begin{figure}[p]
+\centering
+\input{tkz/fig_tetramer_scale_comparison.tkz}
+\caption{\label{fig:tetramer-scale-comparison}Comparative scale plate demonstrating the first twelve tetramers $T_1 \dots T_{12}$ across three candidate publishing models in horizontal linear cartouches ($1 \times 4$ strips): Tier~I ($T_1 \dots T_4$, Micro-Atlas scale, $\varnothing = 7.0\text{ mm}$); Tier~II ($T_5 \dots T_8$, Luxury Monograph scale, $\varnothing = 10.6\text{ mm}$); and Tier~III ($T_9 \dots T_{12}$, Gold-Tooled scale, $\varnothing = 15.0\text{ mm}$)}
+\end{figure}
+\clearpage
+
+\subsection{Directory of Exhibited Sample Tetramers}
+
+Table~\ref{tab:exhibited-tetramers} catalogues the twelve sample tetramers displayed in Figure~\ref{fig:tetramer-scale-comparison}, providing their algebraic invariants, stride profiles, and single-character hexadecimal partition-slash representations.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{rcccll}
+\toprule
+\textbf{ID} & \textbf{Model Scale} & \textbf{$|O|$} & \textbf{$\mathcal{E}$} & \textbf{Polygon Strides} & \textbf{Partition-Slash Representation} \\
+\midrule
+$T_1$  & Micro-Atlas   & $4$ & $720$ & $(1,6,3,6)^{\times 4}$ & \texttt{/017A/289F/36CD/45BE/} \\
+$T_2$  & Micro-Atlas   & $4$ & $720$ & $(2,5,2,7)^{\times 4}$ & \texttt{/0279/18AF/35CE/46BD/} \\
+$T_3$  & Micro-Atlas   & $8$ & $816$ & $(1,6,3,6)^{\times 2} + (1,7,1,7)^{\times 2}$ & \texttt{/017A/289F/34BC/56DE/} \\
+$T_4$  & Micro-Atlas   & $8$ & $816$ & $(1,7,1,7)^{\times 2} + (2,5,2,7)^{\times 2}$ & \texttt{/0189/23AB/46DF/57CE/} \\
+\midrule
+$T_5$  & Luxury        & $8$ & $784$ & $(1,6,3,6)^{\times 2} + (1,7,1,7) + (3,5,3,5)$ & \texttt{/017A/289F/36BE/45CD/} \\
+$T_6$  & Luxury        & $8$ & $784$ & $(1,7,1,7)^{\times 2} + (3,4,5,4)^{\times 2}$ & \texttt{/0189/26BF/37AE/45CD/} \\
+$T_7$  & Luxury        & $8$ & $784$ & $(1,7,1,7) + (2,5,2,7)^{\times 2} + (3,5,3,5)$ & \texttt{/0189/27AF/35CE/46BD/} \\
+$T_8$  & Luxury        & $8$ & $776$ & $(1,6,3,6)^{\times 2} + (2,6,2,6)^{\times 2}$ & \texttt{/017A/289F/35BD/46CE/} \\
+\midrule
+$T_9$  & Gold-Tooled   & $8$ & $776$ & $(2,5,2,7)^{\times 2} + (2,6,2,6)^{\times 2}$ & \texttt{/0279/18AF/35BD/46CE/} \\
+$T_{10}$ & Gold-Tooled & $8$ & $736$ & $(2,5,4,5)^{\times 2} + (2,6,2,6) + (4,4,4,4)$ & \texttt{/027B/159D/38AF/46CE/} \\
+$T_{11}$ & Gold-Tooled & $8$ & $720$ & $(1,4,7,4)^{\times 2} + (1,7,1,7)^{\times 2}$ & \texttt{/015C/23AB/489D/67EF/} \\
+$T_{12}$ & Gold-Tooled & $8$ & $720$ & $(1,6,3,6)^{\times 2} + (2,5,2,7)^{\times 2}$ & \texttt{/017A/289F/35CE/46BD/} \\
+\bottomrule
+\end{tabular}
+\caption{\label{tab:exhibited-tetramers}The twelve sample tetramers exhibited in Figure~\ref{fig:tetramer-scale-comparison}. All twelve patterns possess four symmetric blocks ($s = 4$). In the partition notation, vertices $0 \dots 15$ are represented as single hexadecimal characters \texttt{0} \dots \texttt{F}, indexing blocks between slashes}
+\end{table}
+
+The complete machine-readable index of all affine macro-orbits, formatted in this compact single-character notation with full cycle relabelings and chirality signatures, is preserved in the companion resource file \texttt{hexadecality\_index.txt}.

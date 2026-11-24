@@ -1,0 +1,128 @@
+% mosaic_tikz_preamble.tex - Strict Two-Colour Symmetry Taxonomy for Composition Mosaics
+%
+% Colour Taxonomy:
+%   - Symmetric / Reversible Compositions: mosaicblue (blue!30)
+%   - Chiral / Non-Symmetric Compositions: mosaicpink (red!25)
+%   - Opacity: fill opacity=0.65 for all polygon fills to enable interpenetration visibility.
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+
+% Strict Two-Colour Taxonomy Definitions
+\colorlet{mosaicblue}{blue!30}
+\colorlet{mosaicpink}{red!25}
+
+% TikZ Styles
+\tikzset{
+  % Standard uniform shell polygon size across all figures
+  mosaic shell/.style={
+    regular polygon,
+    minimum size=1.8cm,
+    draw=gray!40,
+    thick
+  },
+  mosaic core shell/.style={
+    regular polygon,
+    minimum size=1.8cm,
+    draw=gray!60,
+    thick,
+    densely dashed
+  },
+  mosaic polygon/.style={
+    regular polygon,
+    minimum size=1.8cm,
+    draw=gray!40,
+    thick
+  },
+  % Partition blocks
+  symmetric block/.style={
+    black, thick, fill=mosaicblue, fill opacity=0.65
+  },
+  chiral block/.style={
+    black, thick, fill=mosaicpink, fill opacity=0.65
+  },
+  % Composition transversals (dashed paths)
+  symm transversal/.style={
+    blue!80!black,
+    line width=1.5pt,
+    dashed
+  },
+  symm dot/.style={
+    fill=blue!80!black
+  },
+  chiral transversal/.style={
+    red!75!black,
+    line width=1.5pt,
+    dashed
+  },
+  chiral dot/.style={
+    fill=red!75!black
+  },
+  % Vertex coordinate discs and size badges
+  active disc/.style={
+    circle,
+    fill=white,
+    draw=black!70,
+    line width=0.6pt,
+    text=black,
+    font=\tiny\bfseries,
+    inner sep=1.0pt
+  },
+  pin dot/.style={
+    circle,
+    fill=white,
+    draw=black!70,
+    line width=0.6pt,
+    text=black,
+    font=\tiny\bfseries,
+    inner sep=1.0pt
+  },
+  symm size badge/.style={
+    circle,
+    fill=mosaicblue,
+    draw=blue!80!black,
+    line width=0.6pt,
+    text=blue!90!black,
+    font=\tiny\bfseries,
+    inner sep=0.7pt
+  },
+  chiral size badge/.style={
+    circle,
+    fill=mosaicpink,
+    draw=red!75!black,
+    line width=0.6pt,
+    text=red!90!black,
+    font=\tiny\bfseries,
+    inner sep=0.7pt
+  },
+  coupling arrow/.style={
+    ->,
+    >=stealth,
+    line width=1.1pt,
+    shorten <=4pt,
+    shorten >=4.5pt
+  },
+  inactive dot/.style={
+    circle,
+    fill=black!25,
+    inner sep=1.0pt
+  },
+  mono size badge/.style={
+    symm size badge
+  },
+  unigon dot/.style={
+    black,
+    fill=mosaicblue,
+    line width=0.8pt
+  },
+  digon stroke/.style={
+    line width=3.2pt,
+    line cap=round
+  },
+  digon lens/.style={
+    fill=mosaicblue,
+    fill opacity=0.75,
+    draw=blue!75!black,
+    line width=0.8pt
+  }
+}

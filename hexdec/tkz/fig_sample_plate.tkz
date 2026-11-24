@@ -1,0 +1,116 @@
+% TikZ prototype plate: 8 hexadecagons in a row demonstrating 2 full 4-cycle quartets
+\begin{tikzpicture}[>=latex, line join=round, line cap=round, scale=0.74]
+  \tikzstyle{hexadecagon}=[regular polygon, regular polygon sides=16, minimum size=1.75cm, draw=gray!40, thin]
+  % Quartet 1, Step 1 (x = 0.00)
+  \begin{scope}[shift={(0.00, 0.00)}]
+    \node[hexadecagon] (H0) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H0.corner 1) -- (H0.corner 2) -- (H0.corner 3) -- (H0.corner 4) -- cycle;
+    \draw[black!85, line width=0.45pt] (H0.corner 1) -- (H0.corner 2) -- (H0.corner 3) -- (H0.corner 4) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H0.corner 5) -- (H0.corner 6) -- (H0.corner 7) -- (H0.corner 8) -- cycle;
+    \draw[black!85, line width=0.45pt] (H0.corner 5) -- (H0.corner 6) -- (H0.corner 7) -- (H0.corner 8) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H0.corner 9) -- (H0.corner 10) -- (H0.corner 11) -- (H0.corner 12) -- cycle;
+    \draw[black!85, line width=0.45pt] (H0.corner 9) -- (H0.corner 10) -- (H0.corner 11) -- (H0.corner 12) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H0.corner 13) -- (H0.corner 14) -- (H0.corner 15) -- (H0.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H0.corner 13) -- (H0.corner 14) -- (H0.corner 15) -- (H0.corner 16) -- cycle;
+    \node[below=0.92cm of H0.center, inner sep=0.5pt] {\scriptsize $O^{(1)}$};
+  \end{scope}
+  % Quartet 1, Step 2 (x = 2.45)
+  \begin{scope}[shift={(2.45, 0.00)}]
+    \node[hexadecagon] (H1) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H1.corner 1) -- (H1.corner 4) -- (H1.corner 7) -- (H1.corner 10) -- cycle;
+    \draw[black!85, line width=0.45pt] (H1.corner 1) -- (H1.corner 4) -- (H1.corner 7) -- (H1.corner 10) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H1.corner 2) -- (H1.corner 9) -- (H1.corner 12) -- (H1.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H1.corner 2) -- (H1.corner 9) -- (H1.corner 12) -- (H1.corner 15) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H1.corner 3) -- (H1.corner 6) -- (H1.corner 13) -- (H1.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H1.corner 3) -- (H1.corner 6) -- (H1.corner 13) -- (H1.corner 16) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H1.corner 5) -- (H1.corner 8) -- (H1.corner 11) -- (H1.corner 14) -- cycle;
+    \draw[black!85, line width=0.45pt] (H1.corner 5) -- (H1.corner 8) -- (H1.corner 11) -- (H1.corner 14) -- cycle;
+    \node[below=0.92cm of H1.center, inner sep=0.5pt] {\scriptsize $\mu_3(O)^{(1)}$};
+  \end{scope}
+  % Quartet 1, Step 3 (x = 4.90)
+  \begin{scope}[shift={(4.90, 0.00)}]
+    \node[hexadecagon] (H2) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H2.corner 1) -- (H2.corner 3) -- (H2.corner 8) -- (H2.corner 10) -- cycle;
+    \draw[black!85, line width=0.45pt] (H2.corner 1) -- (H2.corner 3) -- (H2.corner 8) -- (H2.corner 10) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H2.corner 2) -- (H2.corner 9) -- (H2.corner 11) -- (H2.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H2.corner 2) -- (H2.corner 9) -- (H2.corner 11) -- (H2.corner 16) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H2.corner 4) -- (H2.corner 6) -- (H2.corner 13) -- (H2.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H2.corner 4) -- (H2.corner 6) -- (H2.corner 13) -- (H2.corner 15) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H2.corner 5) -- (H2.corner 7) -- (H2.corner 12) -- (H2.corner 14) -- cycle;
+    \draw[black!85, line width=0.45pt] (H2.corner 5) -- (H2.corner 7) -- (H2.corner 12) -- (H2.corner 14) -- cycle;
+    \node[below=0.92cm of H2.center, inner sep=0.5pt] {\scriptsize $\mu_7(O)^{(1)}$};
+  \end{scope}
+  % Quartet 1, Step 4 (x = 7.35)
+  \begin{scope}[shift={(7.35, 0.00)}]
+    \node[hexadecagon] (H3) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H3.corner 1) -- (H3.corner 2) -- (H3.corner 7) -- (H3.corner 12) -- cycle;
+    \draw[black!85, line width=0.45pt] (H3.corner 1) -- (H3.corner 2) -- (H3.corner 7) -- (H3.corner 12) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H3.corner 3) -- (H3.corner 8) -- (H3.corner 13) -- (H3.corner 14) -- cycle;
+    \draw[black!85, line width=0.45pt] (H3.corner 3) -- (H3.corner 8) -- (H3.corner 13) -- (H3.corner 14) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H3.corner 4) -- (H3.corner 9) -- (H3.corner 10) -- (H3.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H3.corner 4) -- (H3.corner 9) -- (H3.corner 10) -- (H3.corner 15) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H3.corner 5) -- (H3.corner 6) -- (H3.corner 11) -- (H3.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H3.corner 5) -- (H3.corner 6) -- (H3.corner 11) -- (H3.corner 16) -- cycle;
+    \node[below=0.92cm of H3.center, inner sep=0.5pt] {\scriptsize $\mu_5(O)^{(1)}$};
+  \end{scope}
+  \draw[->, blue!75!black, line width=0.8pt] (H0.east) -- (H1.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, line width=0.8pt] (H1.east) -- (H2.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, line width=0.8pt] (H2.east) -- (H3.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, dashed, line width=0.7pt] (H3.north) to[bend right=25] node[midway, above=-1pt] {\tiny $\mu_3$} (H0.north);
+  % Quartet 2, Step 1 (x = 10.30)
+  \begin{scope}[shift={(10.30, 0.00)}]
+    \node[hexadecagon] (H4) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H4.corner 1) -- (H4.corner 2) -- (H4.corner 3) -- (H4.corner 4) -- cycle;
+    \draw[black!85, line width=0.45pt] (H4.corner 1) -- (H4.corner 2) -- (H4.corner 3) -- (H4.corner 4) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H4.corner 5) -- (H4.corner 6) -- (H4.corner 7) -- (H4.corner 8) -- cycle;
+    \draw[black!85, line width=0.45pt] (H4.corner 5) -- (H4.corner 6) -- (H4.corner 7) -- (H4.corner 8) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H4.corner 9) -- (H4.corner 10) -- (H4.corner 11) -- (H4.corner 13) -- cycle;
+    \draw[black!85, line width=0.45pt] (H4.corner 9) -- (H4.corner 10) -- (H4.corner 11) -- (H4.corner 13) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H4.corner 12) -- (H4.corner 14) -- (H4.corner 15) -- (H4.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H4.corner 12) -- (H4.corner 14) -- (H4.corner 15) -- (H4.corner 16) -- cycle;
+    \node[below=0.92cm of H4.center, inner sep=0.5pt] {\scriptsize $O^{(2)}$};
+  \end{scope}
+  % Quartet 2, Step 2 (x = 12.75)
+  \begin{scope}[shift={(12.75, 0.00)}]
+    \node[hexadecagon] (H5) at (0,0) {};
+    \fill[mosaicblue, fill opacity=0.60] (H5.corner 1) -- (H5.corner 4) -- (H5.corner 7) -- (H5.corner 10) -- cycle;
+    \draw[black!85, line width=0.45pt] (H5.corner 1) -- (H5.corner 4) -- (H5.corner 7) -- (H5.corner 10) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H5.corner 2) -- (H5.corner 6) -- (H5.corner 12) -- (H5.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H5.corner 2) -- (H5.corner 6) -- (H5.corner 12) -- (H5.corner 15) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H5.corner 3) -- (H5.corner 9) -- (H5.corner 13) -- (H5.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H5.corner 3) -- (H5.corner 9) -- (H5.corner 13) -- (H5.corner 16) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H5.corner 5) -- (H5.corner 8) -- (H5.corner 11) -- (H5.corner 14) -- cycle;
+    \draw[black!85, line width=0.45pt] (H5.corner 5) -- (H5.corner 8) -- (H5.corner 11) -- (H5.corner 14) -- cycle;
+    \node[below=0.92cm of H5.center, inner sep=0.5pt] {\scriptsize $\mu_3(O)^{(2)}$};
+  \end{scope}
+  % Quartet 2, Step 3 (x = 15.20)
+  \begin{scope}[shift={(15.20, 0.00)}]
+    \node[hexadecagon] (H6) at (0,0) {};
+    \fill[mosaicpink, fill opacity=0.60] (H6.corner 1) -- (H6.corner 3) -- (H6.corner 5) -- (H6.corner 10) -- cycle;
+    \draw[black!85, line width=0.45pt] (H6.corner 1) -- (H6.corner 3) -- (H6.corner 5) -- (H6.corner 10) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H6.corner 2) -- (H6.corner 4) -- (H6.corner 9) -- (H6.corner 11) -- cycle;
+    \draw[black!85, line width=0.45pt] (H6.corner 2) -- (H6.corner 4) -- (H6.corner 9) -- (H6.corner 11) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H6.corner 6) -- (H6.corner 8) -- (H6.corner 13) -- (H6.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H6.corner 6) -- (H6.corner 8) -- (H6.corner 13) -- (H6.corner 15) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H6.corner 7) -- (H6.corner 12) -- (H6.corner 14) -- (H6.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H6.corner 7) -- (H6.corner 12) -- (H6.corner 14) -- (H6.corner 16) -- cycle;
+    \node[below=0.92cm of H6.center, inner sep=0.5pt] {\scriptsize $\mu_7(O)^{(2)}$};
+  \end{scope}
+  % Quartet 2, Step 4 (x = 17.65)
+  \begin{scope}[shift={(17.65, 0.00)}]
+    \node[hexadecagon] (H7) at (0,0) {};
+    \fill[mosaicpink, fill opacity=0.60] (H7.corner 1) -- (H7.corner 2) -- (H7.corner 6) -- (H7.corner 12) -- cycle;
+    \draw[black!85, line width=0.45pt] (H7.corner 1) -- (H7.corner 2) -- (H7.corner 6) -- (H7.corner 12) -- cycle;
+    \fill[mosaicpink, fill opacity=0.60] (H7.corner 3) -- (H7.corner 7) -- (H7.corner 8) -- (H7.corner 13) -- cycle;
+    \draw[black!85, line width=0.45pt] (H7.corner 3) -- (H7.corner 7) -- (H7.corner 8) -- (H7.corner 13) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H7.corner 4) -- (H7.corner 9) -- (H7.corner 14) -- (H7.corner 15) -- cycle;
+    \draw[black!85, line width=0.45pt] (H7.corner 4) -- (H7.corner 9) -- (H7.corner 14) -- (H7.corner 15) -- cycle;
+    \fill[mosaicblue, fill opacity=0.60] (H7.corner 5) -- (H7.corner 10) -- (H7.corner 11) -- (H7.corner 16) -- cycle;
+    \draw[black!85, line width=0.45pt] (H7.corner 5) -- (H7.corner 10) -- (H7.corner 11) -- (H7.corner 16) -- cycle;
+    \node[below=0.92cm of H7.center, inner sep=0.5pt] {\scriptsize $\mu_5(O)^{(2)}$};
+  \end{scope}
+  \draw[->, blue!75!black, line width=0.8pt] (H4.east) -- (H5.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, line width=0.8pt] (H5.east) -- (H6.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, line width=0.8pt] (H6.east) -- (H7.west) node[midway, above=-1pt] {\tiny $\mu_3$};
+  \draw[->, blue!75!black, dashed, line width=0.7pt] (H7.north) to[bend right=25] node[midway, above=-1pt] {\tiny $\mu_3$} (H4.north);
+\end{tikzpicture}

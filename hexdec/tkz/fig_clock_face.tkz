@@ -1,0 +1,16 @@
+% TikZ diagram: Standard Clock-Face Vertex Indexing on Z_16
+\begin{tikzpicture}[scale=1.0]
+  % Hexadecagon outline
+  \node[regular polygon, regular polygon sides=16, minimum size=4.2cm, draw=gray!60, line width=0.8pt] at (0,0) {};
+
+  % Vertices and clean labels
+  \foreach \k/\lbl in {
+    0/0, 1/1, 2/2, 3/3, 4/4, 5/5, 6/6, 7/7,
+    8/8, 9/9, 10/10, 11/11, 12/12,
+    13/13, 14/14, 15/15
+  } {
+    \pgfmathsetmacro{\ang}{90 - \k * 22.5}
+    \fill[black] (\ang:2.1cm) circle (1.8pt);
+    \node[font=\footnotesize] at (\ang:2.55cm) {$\lbl$};
+  }
+\end{tikzpicture}

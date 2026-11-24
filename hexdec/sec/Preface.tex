@@ -1,0 +1,26 @@
+% Preface.tex - Preface to The Atlas of Hexadecagonal Compositions
+% Author: Gemma Knee & Antigra Vitti
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This atlas presents an exhaustive structural and visual census of the composition mosaics on the cyclic lattice $\mathbb{Z}_{16}$. At its foundation lies a classical combinatorial problem: partitioning the sixteen vertices of a regular hexadecagon into four disjoint blocks of four vertices each. Across the discrete universe, exactly $2{,}627{,}625$ such partitions exist. When viewed under Euclidean translations and reflections, these configurations coalesce into $83{,}488$ dihedral orbits, each defining a geometric mosaic of four inscribed quadrilaterals whose edge strides sum to sixteen.
+
+The purpose of this volume is to document the deeper multiplicative architecture that governs these geometric forms. Under the action of the affine group $\operatorname{Aff}(\mathbb{Z}_{16}) = \mathbb{Z}_{16} \rtimes \mathbb{Z}_{16}^\times$, the modular multipliers act as an outer Galois symmetry group $C_4 \cong \mathbb{Z}_{16}^\times / \{\pm 1\}$. Driven by the prime multiplier $\mu_3 \colon x \mapsto 3x \pmod{16}$, the $83{,}488$ dihedral orbits assemble into exactly $21{,}030$ affine macro-orbits:
+\begin{itemize}
+  \item $20{,}721$ \textbf{Tetramers}: 4-cycles undergoing periodic cycling under $\mu_3$
+  \item $295$ \textbf{Dimers}: 2-cycles invariant under squared dilation $\mu_9 = \mu_3^2$
+  \item $14$ \textbf{Monomers}: singular fixed points possessing full affine invariance
+\end{itemize}
+
+Throughout the atlas, every mosaic is rendered according to a strict two-colour taxonomy grounded in block symmetry. A block whose chord strides are invariant under reflection is shaded in blue, whilst a chiral block lacking internal bilateral symmetry is shaded in pink. The cover artwork portrays the median tetramer $T_{10360}$, situated halfway through the tetramer catalogue. Possessing orbit size $|O|=32$, signature $[nsnn]$, and Dirichlet energy $E=614$, its single symmetric block coexists with three chiral blocks in a perpetual four-phase dance under $\mu_3$.
+
+In addition to pure combinatorial geometry, these configurations offer immediate interpretations in musical voice leading, pitch-class set polyphony, and rhythmic partitioning. The accompanying computational suite, including the command-line utility \texttt{midipartner} and the complete electronic index tables, permits researchers and composers to explore the sonic and algebraic properties of every macro-orbit.
+
+\vspace{1.5cm}
+\noindent
+\begin{flushright}
+\textit{Gemma Knee} \qquad \textit{Antigra Vitti}\\[0.25cm]
+\textit{Newcastle upon Tyne}\\[0.15cm]
+\textit{November 2026}
+\end{flushright}

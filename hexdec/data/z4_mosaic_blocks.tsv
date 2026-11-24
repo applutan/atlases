@@ -1,0 +1,6 @@
+# Z_4 Mosaic Blocks Relational Bridge (Links to polyatlas inngons.tsv)
+orbit_id	macro_id	phase	dilation_mult	is_primary	block_idx	vertices	poly_class	canon_comp	realised_comp	root	chirality	manifest_token
+M1	M1	1	1	1	1	0 2	2-2	22	22	0	+	2-2@0+:22
+M1	M1	1	1	1	2	1 3	2-2	22	22	1	+	2-2@1+:22
+M2	M2	1	1	1	1	0 1	2-1	13	13	0	+	2-1@0+:13
+M2	M2	1	1	1	2	2 3	2-1	13	13	2	+	2-1@2+:13

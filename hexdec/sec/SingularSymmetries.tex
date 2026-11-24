@@ -1,0 +1,95 @@
+\section{Singular Symmetries: Monomers and Dimers}
+\label{sec:singular-symmetries}
+
+\subsection{The 14 Monomers (Fixed-Point Macro-Orbits)}
+
+A dihedral orbit $O$ is an affine fixed point (monomer) if it is invariant under the entire outer automorphism group $G_{\text{macro}} \cong C_4$. For any partition $P \in O$, every affine multiplier $\mu_a$ maps $P$ to another member of the same dihedral orbit: $\mu_a(P) \in O$. 
+
+By Theorem~\ref{thm:spectral-decomposition-z44}, there are exactly $14$ such fixed-point orbits. Their representative mosaics are exhibited in Figure~\ref{fig:14-monomers}, each badged directly with its dihedral orbit size $|O|$ ($1$, $4$, $16$, or $32$). These fourteen patterns form the absolute singular bedrock of the $z_4^4$ universe.
+
+\begin{figure}[htbp]
+\centering
+\input{tkz/fig_14_monomers.tkz}
+\caption{\label{fig:14-monomers}The $14$ affine monomer (fixed-point) dihedral orbits of shape $z_4^4$ on $\mathbb{Z}_{16}$, showing their respective dihedral orbit sizes}
+\end{figure}
+
+The $14$ monomers fall into four distinct dihedral size classes:
+\begin{enumerate}
+    \item \textbf{Size 1 ($M_1$)}:
+    The unique regular coset partition:
+    \[
+    P_0 = \{\{0, 4, 8, 12\}, \{1, 5, 9, 13\}, \{2, 6, 10, 14\}, \{3, 7, 11, 15\}\}
+    \]
+    Each block is a regular square with stride profile $(4, 4, 4, 4)$ (shaded blue). It is invariant under all $32$ elements of $D_{16}$ and all $128$ elements of $\operatorname{Aff}(\mathbb{Z}_{16})$.
+    
+    \item \textbf{Size 4 ($M_2, M_3, M_4$)}:
+    Three antipodal rectangular and rhombic configurations with dihedral stabiliser of order $8$:
+    \begin{itemize}
+        \item $M_2$: pairs of opposite rectangular blocks with stride profiles $(1, 7, 1, 7)$ and $(3, 5, 3, 5)$.
+        \item $M_3$: four congruent rhombic blocks with uniform stride $(2, 6, 2, 6)$.
+        \item $M_4$: hybrid pairing consisting of two regular squares $(4, 4, 4, 4)$ and two rhombi $(2, 6, 2, 6)$.
+    \end{itemize}
+    
+    \item \textbf{Size 16 ($M_5, M_6, M_7, M_8$)}:
+    Four orbits with dihedral stabiliser of order $2$:
+    \begin{itemize}
+        \item $M_5, M_6, M_7$: bilateral reflectional symmetry, each possessing a single reflection axis and no non-trivial rotations.
+        \item $M_8$: central antipodal inversion symmetry, invariant under half-turn rotation $x \mapsto x + 8$ with no reflectional axes.
+    \end{itemize}
+    
+    \item \textbf{Size 32 ($M_9 \dots M_{14}$)}:\newline
+    Six fully asymmetric dihedral orbits with trivial dihedral stabiliser $|\operatorname{Stab}_{D_{16}}(P)| = 1$. Although entirely devoid of non-trivial dihedral symmetries, their stabiliser in the ambient affine group $\operatorname{Aff}(\mathbb{Z}_{16})$ has order $4$, generating an outer cyclic symmetry under $\mu_3$.
+\end{enumerate}
+
+\subsection{The Stabiliser Spectrum: The 1, 3, 4, 6 Decomposition}
+
+The arithmetic decomposition of the fourteen monomers into dihedral orbit sizes:
+\[
+14 = 1 + 3[\times 4] + 4[\times 16] + 6[\times 32]
+\]
+is a direct consequence of the subgroup lattice of $D_{16}$ and the compatibility requirements imposed by the affine multiplier $\mu_3 \colon x \mapsto 3x \pmod{16}$.
+
+More fundamentally, when indexed systematically across all six divisors of $|D_{16}| = 32$ in increasing order of dihedral orbit size $d \in \{1, 2, 4, 8, 16, 32\}$ (or decreasing stabiliser order $32/d \in \{32, 16, 8, 4, 2, 1\}$), the full coefficient vector is:
+\[
+(1, 0, 3, 0, 4, 6)
+\]
+In Fripertinger's cycle index framework~\cite{Fripertinger1997,Kerber1999}, these values appear directly as the $\omega$-coefficients of the shape monomial $z^\lambda = z_4^4$ under the Burnside-Polya plethysm, where the vanished coefficients at divisors $2$ and $8$ reflect the algebraic obstruction to isolating $\langle r^2 \rangle$ and $\langle r^4 \rangle$ symmetries under Galois dilation.
+
+By the Orbit-Stabiliser Theorem, the size of a dihedral orbit $|O|$ and the order of the stabiliser subgroup $\operatorname{Stab}_{D_{16}}(P)$ of any representative partition $P \in O$ satisfy:
+\[
+|O| \cdot |\operatorname{Stab}_{D_{16}}(P)| = |D_{16}| = 32
+\]
+The possible subgroup orders in $D_{16}$ are divisors of $32$: $1, 2, 4, 8, 16, 32$. However, among the affine monomers, only stabiliser orders $32, 8, 2, 1$ occur. Stabiliser orders $16$ (orbit size $2$) and $4$ (orbit size $8$) are completely absent:
+
+\begin{itemize}
+    \item \textbf{Order 32 ($|O| = 1$, 1 monomer)}:
+    The full dihedral group $D_{16}$ requires invariance under the generator of rotations $r \colon x \mapsto x + 1$. Because $r$ acts transitively on $\mathbb{Z}_{16}$, the four blocks of size $4$ must form an orbit under $r$, forcing each individual block to be invariant under $r^4 \colon x \mapsto x + 4$. The only subsets of size $4$ invariant under translation by $4$ are the cosets of the principal ideal $4\mathbb{Z}_{16}$. This configuration is unique, giving exactly $1$ monomer ($M_1$).
+    
+    \item \textbf{Order 8 ($|O| = 4$, 3 monomers)}:
+    A stabiliser of order $8$ containing four rotations must have rotational subgroup $\langle r^4 \rangle \cong C_4$. Translation by $4$ permutes the four blocks as an element of the symmetric group $S_4$. Since $(r^4)^2 = r^8 \neq \operatorname{id}$, the permutation cannot be identity on all blocks without reducing to $M_1$. The permissible cycle structures in $S_4$ are:
+    \begin{enumerate}
+        \item Two 2-cycles $(B_a B_b)(B_c B_d)$: two distinct geometric arrangements arise, depending on whether the antipodal pairs are adjacent chords ($M_2$, strides $1$ and $7$) or alternate chords ($M_3$, strides $2$ and $6$).
+        \item One 2-cycle and two fixed blocks $(B_a B_b)(B_c)(B_d)$: exactly one hybrid arrangement is realisable ($M_4$), where two blocks are invariant under $r^4$ (squares) and two blocks are interchanged (rhombi).
+    \end{enumerate}
+    Together, these yield precisely $2 + 1 = 3$ monomers.
+    
+    \item \textbf{Absence of Order 16 ($|O| = 2$) and Order 4 ($|O| = 8$)}:
+    An orbit of size $2$ would require a stabiliser of order $16$, which contains the rotation subgroup $\langle r^2 \rangle \cong C_8$. Any partition invariant under translation by $2$ has its blocks composed of pairs $\{x, x+8\}$; under the action of the affine multiplier $\mu_3$, this translation group automatically forces full invariance under $r^4$ and reflections, collapsing the orbit to size $4$ or $1$. 
+    
+    Similarly, an order-$4$ stabiliser in $D_{16}$ would be either cyclic $\langle r^4 \rangle$ without reflections, or $\langle r^8, s \rangle$. However, the affine equivariance condition $\mu_3 \operatorname{Stab}_{D_{16}}(P) \mu_3^{-1} = \operatorname{Stab}_{D_{16}}(P)$ forces any partition possessing $\langle r^4 \rangle$ symmetry to also admit four reflection axes, lifting the stabiliser order from $4$ to $8$.
+    
+    \item \textbf{Order 2 ($|O| = 16$, 4 monomers)}:
+    A stabiliser of order $2$ in $D_{16}$ is generated either by a single reflection $s$ ($\det = -1$) or by the central half-turn $r^8 \colon x \mapsto x + 8$ ($\det = +1$). Exactly $3$ monomers ($M_5, M_6, M_7$) possess a unique reflection axis, while exactly $1$ monomer ($M_8$) possesses central point-inversion symmetry $\langle r^8 \rangle$. In total, $3 + 1 = 4$ monomers emerge.
+    
+    \item \textbf{Order 1 ($|O| = 32$, 6 monomers)}:
+    The remaining $6$ monomers have no non-trivial dihedral symmetries whatsoever. Each partition is completely chiral and asymmetric under rigid Euclidean motions. Nevertheless, in the ambient affine group $\operatorname{Aff}(\mathbb{Z}_{16})$, each possesses a cyclic stabiliser of order $4$ generated by an affine spiral $x \mapsto 3x + b$ or $x \mapsto 5x + b$.
+\end{itemize}
+
+\subsection{The 295 Dimers (2-Cycles)}
+
+A dimer is an affine macro-orbit consisting of a pair of dihedral orbits $\{O_a, O_b\}$ that are interchanged by $\mu_3$ and $\mu_5$, but individually fixed by the involution $\mu_7 \colon x \mapsto 7x \equiv -9x \pmod{16}$:
+\begin{equation}
+\label{eqn:dimer-action}
+\mu_3(O_a) = O_b, \quad \mu_3(O_b) = O_a, \quad \mu_7(O_a) = O_a, \quad \mu_7(O_b) = O_b
+\end{equation}
+Theorem~\ref{thm:spectral-decomposition-z44} proves that exactly $295$ such pairs exist, accounting for $590$ dihedral orbits ($0.7\%$ of the total). Because they are invariant under the order-64 group $H_2 = D_{16} \rtimes \langle \mu_7 \rangle$, their block composition profiles are preserved under the chord dilation $d \mapsto 7d \pmod{16}$.

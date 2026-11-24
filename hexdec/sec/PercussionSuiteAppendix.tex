@@ -1,0 +1,156 @@
+% Appendix C: A Polyrhythmic Percussion Suite
+
+The geometric partition of the sixteen vertices $\mathbb{Z}_{16} = \{0, 1, \dots, 15\}$ admits an immediate acoustic realisation as a $16$-step rhythmic measure (four beats of sixteenth notes in common $4/4$ time).
+
+Because each mosaic $P = \{B_0, B_1, B_2, B_3\}$ forms a partition of the metric grid, at each sixteenth-note step $t \in \{0, \dots, 15\}$ exactly one block contains $t$. When each block is assigned a distinct percussive instrument, the four voices never sound simultaneously. They generate a dense, interlocking hocket: an uninterrupted composite stream of sixteenth notes where melodic and rhythmic contours emerge purely from timbre.
+
+\section{Acoustic Mapping and Voice Assignment}
+\label{sec:percussion-suite}
+
+Fourteen Standard MIDI files (\texttt{monomer1.mid} through \texttt{monomere.mid}, indexed in hexadecimal $1 \dots \text{e}$) form a complete percussion suite synthesised on General MIDI Channel~10:
+\begin{itemize}
+    \item \textbf{Voice 0} (Block containing downbeat vertex $0$): Bass Drum 1 (Kick, MIDI note 36), anchoring the measure's pulse.
+    \item \textbf{Voice 1}: Acoustic Snare (MIDI note 38), providing the mid-frequency backbeat.
+    \item \textbf{Voice 2}: Closed Hi-Hat (MIDI note 42), supplying high-frequency metallic articulation.
+    \item \textbf{Voice 3}: Claves (MIDI note 75), cutting through with a sharp, resonant wooden click.
+\end{itemize}
+
+Each monomer exhibits a distinct metric character governed by its dihedral and affine stabilisers:
+\begin{itemize}
+    \item \textbf{Regular Pulse ($M_1$)}:
+    Because $M_1$ consists of the four cosets of $4\mathbb{Z}_{16}$, each instrument plays an isochronous stream of four quarter notes, offset by single sixteenth notes. It sounds as four interwoven "four-on-the-floor" pulses.
+    
+    \item \textbf{Palindromic Grooves ($M_2, M_3, M_4$)}:
+    Owing to their order-$8$ dihedral stabilisers, these rhythms display exact half-measure translational symmetry ($t \mapsto t + 8$) and bilateral retrogrades. The kick and snare form balanced, syncopated funk phrases with predictable metric counterpoint.
+    
+    \item \textbf{Reflectional Syncopations ($M_5, M_6, M_7, M_8$)}:
+    $M_8$ exhibits an inversion groove ($t \mapsto t + 8$), swapping instrument pairings halfway through the bar, while $M_5, M_6, M_7$ possess metric retrograde axes where the sixteenth-note pattern reads identically forwards and backwards around specific beats.
+    
+    \item \textbf{Chiral Breakbeats ($M_9 \dots M_{14}$)}:
+    Having no Euclidean symmetries, these rhythms sound completely irregular and unpredictable in linear time. Their hidden periodicity only reveals itself under affine multiplier decimation: sub-sampling the rhythm at every third sixteenth note ($\mu_3 \colon t \mapsto 3t \pmod{16}$) recovers the exact original rhythmic profile.
+\end{itemize}
+
+\section{The Companion Synthesizer (\texttt{midipartner})}
+\label{sec:percussion-synthesizer}
+
+The percussion synthesiser \texttt{midipartner} (\path{tools/midipartner.py}, aliased as \texttt{midipart}) synthesises any valid mosaic partition into a multi-track General MIDI percussion loop on Channel~10.
+
+\subsection{Catalogue Specifiers}
+For hexadecimological study, \texttt{midipartner} directly parses canonical catalogue specifiers for all $21{,}030$ affine macro-orbits ($83{,}488$ dihedral orbits) tabulated in the atlas:
+\begin{itemize}
+    \item \textbf{Tetramer Patterns}: The specifier \texttt{T01152.3} selects pattern~3 of tetramer \texttt{T01152} under $\mu_3$ dilation. Omitting the pattern suffix (\texttt{T01152}) defaults to the primary representative (Phase~1):
+{\small
+\begin{verbatim}
+midipartner T01152.3 --output T01152_3.mid --bpm 63 --bars 8
+midipartner T01152 --bpm 63 --bars 8
+\end{verbatim}}
+    \item \textbf{Dimer Patterns}: The specifier \texttt{D001.2} selects the conjugate comosaic of dimer \texttt{D001} (omitting the suffix defaults to Phase~1):
+{\small
+\begin{verbatim}
+midipartner D001.2 --bpm 90 --bars 4
+\end{verbatim}}
+    \item \textbf{Monomers}: All 14 monomers are addressed directly by record:
+{\small
+\begin{verbatim}
+midipartner M01 --bpm 110 --bars 4
+\end{verbatim}}
+\end{itemize}
+The utility scans the precomputed index in \path{hexdec/data/hexadecality_index.txt}, extracting the exact partition and chirality signature instantaneously without requiring runtime combinatorial generation.
+
+\subsection{Arbitrary Partitions and Metric Grids}
+Beyond catalogue lookups on $\mathbb{Z}_{16}$, \texttt{midipartner} provides general set partition parsing:
+\begin{itemize}
+    \item \textbf{Explicit Slash Notation}: Partitions may be supplied directly as positional arguments or via \texttt{-p}/\texttt{--partition}:
+{\small
+\begin{verbatim}
+midipartner "/0149/26AE/37BF/58CD/" -o chiral_breakbeat.mid
+\end{verbatim}}
+    \item \textbf{Generalised Metric Grids and Odd Time Signatures ($n \le 36$)}:
+    Partitions on cyclic groups $\mathbb{Z}_n$ up to $n=36$ are encoded using Base-36 alphanumeric characters (\texttt{0}--\texttt{9} for $0 \dots 9$ and \texttt{A}--\texttt{Z} / \texttt{a}--\texttt{z} for $10 \dots 35$). Rather than forcing odd cycles into an artificial common-time ($4/4$) grid, the synthesiser embeds the exact intrinsic **$n/16$ time signature** with semiquaver metronome resolution. For example, an $11$-step partition on $\mathbb{Z}_{11}$ is signatured as $11/16$, a nonagonal trimer on $\mathbb{Z}_9$ as $9/16$, and a heptagonal rhythm on $\mathbb{Z}_7$ as $7/16$:
+{\small
+\begin{verbatim}
+midipartner "/0123/4567/89A/" -o odd_11_16.mid
+midipartner "/012/345/678/" --bpm 108 -o trimer_z9.mid
+midipartner "/012345/6789AB/CDEFGH/IJKLMN/OPQRST/UVWXYZ/" \
+  -o z36.mid
+\end{verbatim}}
+    Metric grids with $n > 36$ are supported using hyphen- or space-separated multi-digit integers (e.g.\ \texttt{/0-1-18-36/2-3-19-37/.../}).
+
+    \item \textbf{Additive Metre Groupings and Dynamic Accents}:
+    For odd metres, \texttt{midipartner} supports custom metric pulse groupings via the \texttt{--grouping} flag (or explicit accents via \texttt{--accents}). For instance, an $11/16$ measure can be articulated with a $3+3+3+2$ or $4+4+3$ additive pulse:
+{\small
+\begin{verbatim}
+midipartner "/0123/4567/89A/" --grouping 3,3,3,2 -o balkan_11_16.mid
+midipartner "/0123/4567/89A/" --time-sig 11/16 --accents 0,3,6,9
+\end{verbatim}}
+    This places secondary acoustic accents at the sub-beat boundaries while preserving the primary measure downbeat on step~0, preventing unintended quarter-note common-time pulsations.
+\end{itemize}
+
+\subsection{Instrument Nomination}
+To facilitate subtractive acoustic analysis, solo transcription, or isolating specific polyrhythmic strata, \texttt{midipartner} allows nominating a "silent" instrument for any partition part from Part~1 to Part~$k$:
+\begin{itemize}
+    \item \textbf{Dedicated Mute Flag}: Passing \texttt{--silent} (or \texttt{--mute}) with 1-indexed part numbers to suppress selected voices (e.g.\ \texttt{--silent 1} to mute the downbeat kick and audition the accompaniment, or \texttt{--silent 1 3}):
+{\small
+\begin{verbatim}
+midipartner T01152.3 --silent 1 -o T01152_3_no_kick.mid
+\end{verbatim}}
+    \item \textbf{Instrument Palette Assignment}: Specifying \texttt{silent}, \texttt{rest}, \texttt{none}, or \texttt{0} via the \texttt{-i} palette flag:
+{\small
+\begin{verbatim}
+midipartner T01152.3 -i silent 38 42 75 -o p1_muted.mid
+midipartner T01152.3 -i silent snare hihat claves
+\end{verbatim}}
+\end{itemize}
+Muted voices emit no MIDI note events while preserving the exact metric bar length of the ensemble loop.
+
+\section{Score Engraving with \texttt{xmusicpartner}}
+\label{sec:percussion-musicxml}
+
+While Standard MIDI files provide instantaneous multi-track acoustic playback, they possess inherent structural limitations for music notation. Standard MIDI records only asynchronous timestamped note-on and note-off events; it contains no concept of musical rests, metric beam groupings, unpitched percussion staves, or score typography. When raw MIDI files are imported into notation software, heuristic quantisation algorithms frequently misinterpret silent intervals between hockets as overlapping tied notes, while failing to beam odd or additive metres ($7/16, 9/16, 11/16, 13/16$) correctly.
+
+To provide a fully vendor-neutral notation pipeline, the companion suite includes the score generator \texttt{xmusicpartner} (housed at \path{tools/xmusicpartner.py}, aliased as \texttt{xmusicpart}). The utility targets the open \textbf{MusicXML 3.1/4.0} standard maintained by the W3C Music Notation Community Group. Generated scores import deterministically into any standard-compliant notation software, scorewriter, or musicological framework (including open-source engravers such as MuseScore and GNU LilyPond via \texttt{musicxml2ly}, commercial environments such as Steinberg Dorico and Avid Sibelius, and computational musicology toolkits such as \texttt{music21}).
+
+\subsection{Notational Semantics and Architecture}
+
+The exporter bridges cyclic combinatorial geometry and score engraving through several core mechanisms:
+\begin{enumerate}
+    \item \textbf{Deterministic Notes and Rests}:
+    Each sixteenth-note time step $t \in \{0, \dots, n-1\}$ is evaluated across the partition. Active voices emit explicit unpitched semiquaver notes, while idle voices emit explicit sixteenth rests (\texttt{<rest/><type>16th</type>}). This eliminates quantisation guesswork and guarantees faithful score engraving.
+
+    \item \textbf{Additive Metres and Metric Beam Trees}:
+    For any cyclic modulus $n$, the \texttt{--grouping} option constructs explicit hierarchical beam trees (\texttt{begin}, \texttt{continue}, \texttt{end}). An $11/16$ metre specified with \texttt{--grouping 3,3,3,2} is automatically beamed into distinct metric clusters of $3$, $3$, $3$, and $2$ semiquavers, rather than collapsing into arbitrary four-note blocks or fragmented flags.
+
+    \item \textbf{Percussion Clefs and Display Positions}:
+    Measures are initialised with standard W3C unpitched percussion clefs (\texttt{<clef><sign>percussion</sign></clef>}), mapping the four mosaic voices to standard percussion staff positions: Bass Drum 1 on Space~1 ($F_4$), Acoustic Snare on Space~3 ($C_5$), Closed Hi-Hat with cross noteheads above Line~5 ($G_5$), and Claves on Space~4 ($E_5$).
+
+    \item \textbf{Score Topologies (\texttt{--score-type})}:
+    The generator provides two distinct structural score representations:
+    \begin{itemize}
+        \item \textbf{Multi-Staff Ensemble (\texttt{--score-type multi}, default)}: Assigns each polygon block to an independent percussion staff, clearly exhibiting the individual polyrhythmic stride and voice shape ($\mathbf{z}_k$) of each part.
+        \item \textbf{Consolidated Drum Kit (\texttt{--score-type kit})}: Collates all interlocking voices into a single standard 5-line drum set staff, visually displaying the composite, gapless hocket stream.
+    \end{itemize}
+
+    \item \textbf{Combinatorial and Catalogue Metadata}:
+    Every generated score embeds provenance in its XML header, recording the cyclic universe $\mathbb{Z}_n$, macro-orbit catalogue identifier (e.g.\ \texttt{T01152}, \texttt{D001}, \texttt{M01}), dilation phase index, partition shape, and composer credit.
+\end{enumerate}
+
+\subsection{Command-Line Execution}
+
+The tool accepts both canonical atlas specifiers and arbitrary set partition strings:
+\begin{itemize}
+    \item \textbf{Atlas Catalogue Queries}:
+{\small
+\begin{verbatim}
+xmusicpartner T01152.3 --bars 2 -o T01152_3.musicxml
+xmusicpartner M01 --bars 4 -o monomer1.musicxml
+xmusicpartner D001.2 --score-type kit -o dimer1_2_kit.musicxml
+\end{verbatim}}
+
+    \item \textbf{Additive Odd-Metre Partitions}:
+{\small
+\begin{verbatim}
+xmusicpartner "/0123/4567/89A/" --grouping 3,3,3,2 -o odd11.musicxml
+xmusicpartner "/0149/26AE/37BF/58CD/" --title "Chiral Breakbeat" \
+  --score-type kit -o breakbeat.musicxml
+\end{verbatim}}
+\end{itemize}

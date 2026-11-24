@@ -1,0 +1,45 @@
+\section{Hexadecagonal Architecture}
+\label{sec:introduction}
+
+The sixteen vertices of the cyclic lattice $\mathbb{Z}_{16}$ give rise to an immense combinatorial landscape. When we partition the regular hexadecagon into four disjoint blocks of four vertices each (the shape $z_4^4$), the vertices connect to form inscribed polygons whose cyclic edge strides define integer compositions of $16$~\cite{Fripertinger1997,Kerber1999}. 
+
+Across the full combinatorial universe, exactly $2{,}627{,}625$ distinct set partitions tile the sixteen vertices into four quadrilaterals:
+\begin{equation}
+\label{eqn:raw-universe-z44}
+|\mathcal{P}(z_4^4)| = \frac{1}{4!} \binom{16}{4} \binom{12}{4} \binom{8}{4} \binom{4}{4} = 2{,}627{,}625
+\end{equation}
+Under the physical symmetries of the polygon—the translations and reflections generating the dihedral group $D_{16}$ of order $32$—these configurations gather into the graded bivariate orbit polynomial:
+\begin{equation}
+\label{eqn:orbit-poly-d16}
+P_{16}(z_4^4, \omega) = 80802\omega^{32} + 2568\omega^{16} + 102\omega^{8} + 13\omega^{4} + 2\omega^{2} + \omega^{1}
+\end{equation}
+Evaluating this polynomial at $\omega = 1$ reveals the total census of non-equivalent dihedral mosaic orbits:
+\begin{equation}
+\label{eqn:total-d16-orbits}
+P_{16}(z_4^4, 1) = 80802 + 2568 + 102 + 13 + 2 + 1 = 83{,}488
+\end{equation}
+
+Beneath this vast collection of 83 thousand geometric configurations lies a deeper, unifying algebra governed by modular multiplication. The affine group $\operatorname{Aff}(\mathbb{Z}_{16}) = \mathbb{Z}_{16} \rtimes (\mathbb{Z}_{16})^\times$ acts on the polygon not merely by turning or flipping it, but by dilating its chords through modular unit multipliers.
+
+The outer automorphism group $G_{\text{macro}} = \operatorname{Aff}(\mathbb{Z}_{16}) / D_{16} \cong C_4$ acts upon the dihedral orbits as a cyclic permutation group of order $4$, driven by the Galois multiplier $\mu_3 \colon x \mapsto 3x \pmod{16}$. This multiplicative symmetry weaves the $83{,}488$ individual dihedral mosaics into exactly $21{,}030$ Affine Macro-Orbits.
+
+\subsection{Lattice Geometry and Clock-Face Orientation}
+\label{sec:clock-face-orientation}
+
+Across all diagrams, plates, and catalogue listings in this atlas, the sixteen hexadecagonal vertices are identified as $\{0, 1, \dots, 15\}$ according to a clock-face geometry with $0$ at the top, advancing by $1$ clockwise.
+
+A representative partition of the set of vertices as a \textit{mosaical shape} $z_4^4$ is exemplified by $P = \{\{0, 2, 7, 9\}, \{1, 4, 10, 11\}, \{3, 8, 12, 15\}, \{5, 6, 13, 14\}\}$.
+
+A perimeter \textit{stride} between successive vertices of an inscribed block $B = \{v_1, v_2, v_3, v_4\}$ (ordered circularly $v_1 < v_2 < v_3 < v_4$) is defined as the forward modular step around the polygon, $s_i = (v_{i+1} - v_i) \bmod 16$ (where $v_5 \equiv v_1$) such that $\sum_{i=1}^4 s_i = 16$. For example, the first of the four blocks of our exemplar $P$, above, has strides $(2 - 0)$, $(7 - 2)$, $(9 - 7)$, $(0 - 9)$---which is to say $2, 5, 2, 7$ since $7 \equiv -9 \pmod{16}$---notice that $2 + 5 + 2 + 7 = 16$ as required.
+
+Figure~\ref{fig:clock-face-convention} below illustrates vertex numbering, the entire example partition $P$, the vertices of the first block of $P$, and finally the strides of that first block.
+
+\begin{figure}[htbp]
+\centering
+\input{tkz/T00646.tkz}
+\caption{\label{fig:clock-face-convention}$z_4^4$-mosaic $P$ on $\mathbb{Z}_{16}$, with its modular arithmetic}
+\end{figure}
+
+The other three blocks of $P$ have corresponding strides $3 + 6 + 1 + 6$, $5 + 4 + 3 + 4$, and $1 + 7 + 1 + 7$.
+
+Mosaics will generally be abbreviated (to save space) using hexadecimal numerals where $\mathrm{A}=10$, $\mathrm{B}=11$, $\mathrm{C}=12$, etc. For instance, the mosaic $P$ above is notated as \path{/0279/14AB/38CF/56DE/}, using lexicographical ordering to determine a \textit{canonical representative} of dihedrally equivalent partitions (mosaics).
