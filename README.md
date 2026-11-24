@@ -9,12 +9,12 @@ A collection of comprehensive cartographic monographs, algebraic classifications
    * Complete algebraic classification of all dihedral orbits of inscribed single polygons, evaluated via the Cauchy--Frobenius bracelet generating polynomial $CF\_n(x)$ alongside cyclic necklace polynomials $N\_n(x)$.
    * Includes 19-column generating function coefficient tables ($n=1 \dots 16$), machine-readable polygon manifests (`inngons.tsv`, `inngons.csv`, `inngons.json`), and circular stride classification.
 
-2. **`hexdec/` — Hexadecality: The Atlas of Hexadecagonal Compositions**
+2. **`unimosatlas/` — Hexadecality: The Atlas of Hexadecagonal Compositions**
    * *Affine Macro-Orbits and Galois Multiplier Symmetries on* $\mathbb{Z}\_{16}$ (255 pages).
    * Exhaustive cartography of **uniform composition mosaics**—set partitions where every block possesses identical cardinality ($z\_k^m$, with $n = k \cdot m$). Explores the square-dimension uniform universes where $k = m = \sqrt{n}$: $\mathbb{Z}\_4$ ($z\_2^2$, 2 monomers), $\mathbb{Z}\_9$ ($z\_3^3$, 25 comosaics across 9 macro-orbits), and $\mathbb{Z}\_{16}$ ($z\_4^4$, $83{,}488$ dihedral comosaics in $21{,}030$ affine macro-orbits).
-   * Full visual cartouches, Galois dilation cycles ($\mu\_3, \mu\_7, \mu\_5$), dihedral stabilizer classifications, chord dispersion energies, relational polygon bridges into `polyatlas`, and an interlocking percussion suite (`midipartner` for MIDI and `xmusicpartner` for W3C MusicXML score engraving).
+   * Full visual cartouches, Galois dilation cycles ($\mu\_3, \mu\_7, \mu\_5$), dihedral stabiliser classifications, chord dispersion energies, relational polygon bridges into `polyatlas`, and an interlocking percussion suite (`midipartner` for MIDI and `xmusicpartner` for W3C MusicXML score engraving).
 
-3. **`octatlas/` — An Atlas of Composition Mosaics**
-   * *The Complete Dihedral Universe from* $\mathbb{Z}\_1$ *to* $\mathbb{Z}\_8$ (25 pages).
+3. **`allmosatlas/` — An Atlas of Composition Mosaics**
+   * *The Complete Dihedral Universe from* $\mathbb{Z}\_1$ *to* $\mathbb{Z}\_8$ (24 pages).
    * Exhaustive combinatorial census, algebraic classification, and visual cartography of all **509** non-equivalent dihedral composition mosaics across 5,295 set partitions (governed by Bell numbers $B\_1 \dots B\_8$, realising OEIS sequence A084708).
    * Ten high-density vector plates displaying all 509 pure shaded geometric tilings, generalising cyclic lattice combinatorics, Faà di Bruno multinomial shape stratification, Singleton Shattering Duality, bilateral block symmetries and the emergence of chirality at $\mathbb{Z}\_6$, the cyclic Skolem sequence of $\mathbb{Z}\_8$, and machine-readable relational datasets (`mosaics.tsv`, `mosaic_blocks.tsv`) bridging directly into `polyatlas`.

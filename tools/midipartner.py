@@ -114,12 +114,15 @@ GM_ALIASES = {
 }
 
 def find_index_file() -> Optional[str]:
-    """Find the path to hexdec/data/hexadecality_index.txt."""
+    """Find the path to unimosatlas/data/hexadecality_index.txt."""
     candidates = [
         # Relative to realpath of this script (handles symlinks)
+        os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "unimosatlas", "data", "hexadecality_index.txt"),
         os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "hexdec", "data", "hexadecality_index.txt"),
+        "unimosatlas/data/hexadecality_index.txt",
         "hexdec/data/hexadecality_index.txt",
         "data/hexadecality_index.txt",
+        os.path.expanduser("~/gemai/composit/unimosatlas/data/hexadecality_index.txt"),
         os.path.expanduser("~/gemai/composit/hexdec/data/hexadecality_index.txt"),
     ]
     for path in candidates:

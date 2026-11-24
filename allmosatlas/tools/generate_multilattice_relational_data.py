@@ -56,7 +56,7 @@ def parse_args():
     parser.add_argument(
         "--data-dir",
         type=str,
-        default="octatlas/data",
+        default="allmosatlas/data",
         help="Output directory for relational datasets"
     )
     parser.add_argument(

@@ -1,7 +1,7 @@
 # Makefile for An Atlas of Composition Mosaics (Z_1..Z_8)
 
-MAIN = octatlas
-PDF = octatlas.pdf
+MAIN = allmosatlas
+PDF = allmosatlas.pdf
 PLATES = plates/plates_z1_z8.pdf
 
 .PHONY: all plates pdf clean distclean

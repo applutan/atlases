@@ -26,7 +26,7 @@ $$
 
 ## Directory Structure
 
-* [`octatlas.pdf`](octatlas.pdf): The complete compiled monograph (24 pages, A4).
+* [`allmosatlas.pdf`](allmosatlas.pdf): The complete compiled monograph (24 pages, A4).
 * [`data/`](data/): Master datasets (`mosaics.tsv`, `mosaics.csv`, `mosaics.json`) and relational block tables (`mosaic_blocks.tsv`, `mosaic_blocks.csv`, `mosaic_blocks.json`).
 * [`plates/`](plates/): Standalone TikZ visual plates source (`plates_z1_z8.tex`) and compiled vector booklet (`plates_z1_z8.pdf`, 10 pages).
 * [`sec/`](sec/): Monograph text chapters (`Preface.tex`, `LatticeArchitecture.tex`, `CanonicalTaxonomy.tex`, `VisualAtlas.tex`).

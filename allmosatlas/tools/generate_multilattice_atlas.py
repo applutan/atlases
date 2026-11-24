@@ -35,8 +35,8 @@ def parse_args():
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="octatlas",
-        help="Base output directory for octatlas"
+        default="allmosatlas",
+        help="Base output directory for allmosatlas"
     )
     return parser.parse_args()
 

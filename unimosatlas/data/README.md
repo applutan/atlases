@@ -112,27 +112,27 @@ $$\mathrm{[Class]}@\mathrm{[Root]}[\mathrm{Sign}]:\mathrm{[RealisedStrides]}$$
 
 ### Count macro-orbits by oligomer cycle length
 ```bash
-awk -F'\t' 'NR>1 {count[$3]++} END {for (t in count) print t ": " count[t]}' hexdec/data/z16_macro_mosaics.tsv
+awk -F'\t' 'NR>1 {count[$3]++} END {for (t in count) print t ": " count[t]}' unimosatlas/data/z16_macro_mosaics.tsv
 ```
 
 ### Find all maximally symmetric comosaics ($\vert\mathrm{Stab}\vert = 32$)
 ```bash
-awk -F'\t' '$8 == 32 {print $1, $3, $9, $10, $12}' hexdec/data/z16_macro_mosaics.tsv
+awk -F'\t' '$8 == 32 {print $1, $3, $9, $10, $12}' unimosatlas/data/z16_macro_mosaics.tsv
 ```
 
 ### Extract all purely achiral comosaics with four symmetric blocks (`[ssss]`)
 ```bash
-awk -F'\t' '$11 == "[ssss]" {count++} END {print "Total [ssss] comosaics: " count}' hexdec/data/z16_macro_mosaics.tsv
+awk -F'\t' '$11 == "[ssss]" {count++} END {print "Total [ssss] comosaics: " count}' unimosatlas/data/z16_macro_mosaics.tsv
 ```
 
 ### Identify the highest chord energy comosaic
 ```bash
-awk -F'\t' 'NR>1 {if ($10 > max) {max = $10; line = $0}} END {print "Max energy " max ": " line}' hexdec/data/z16_macro_mosaics.tsv
+awk -F'\t' 'NR>1 {if ($10 > max) {max = $10; line = $0}} END {print "Max energy " max ": " line}' unimosatlas/data/z16_macro_mosaics.tsv
 ```
 
 ### Inspect the relational block manifest for a specific macro-orbit (e.g. `T00646`)
 ```bash
-grep -E '^T00646\b' hexdec/data/z16_macro_mosaic_blocks.tsv
+grep -E '^T00646\b' unimosatlas/data/z16_macro_mosaic_blocks.tsv
 ```
 
 ### Cross-reference a mosaic block to `polyatlas` polygon data
