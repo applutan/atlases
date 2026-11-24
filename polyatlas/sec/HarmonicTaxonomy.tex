@@ -34,3 +34,21 @@ orbit length $|\mathcal{O}|$, and binary bilateral reflection flag ($1 =
 The complete 5{,}099-orbit inventory is maintained in the companion
 files \path{data/inngons.tsv}, \path{inngons.csv}, and \path{inngons.json}
 for computational querying and stream filtering.
+
+\section{Generating Function Coefficient Tables}
+\label{sec:coefficient-tables}
+
+The exact decomposition of $k$-gon orbit counts across each circular lattice
+$\mathbb{Z}_n$ is governed by the Cauchy--Frobenius bracelet polynomial
+$CF_n(x) = \sum_{k=0}^n c_{n,k} x^k$ and the cyclic necklace polynomial
+$N_n(x) = \sum_{k=0}^n a_{n,k} x^k$.
+
+Table~\ref{tab:dihedral-coefficients} tabulates the dihedral coefficients
+$c_{n,k}$, displaying the palindromic expansion $c_{n,k} \equiv c_{n, n-k}$
+whose row sum equals the total dihedral orbit count $CF_n(1)$.
+Table~\ref{tab:cyclic-coefficients} tabulates the corresponding cyclic
+coefficients $a_{n,k}$, while Table~\ref{tab:chiral-coefficients} isolates
+the exact census of chiral enantiomorphic pairs $\chi_{n,k} = a_{n,k} - c_{n,k}$
+at each polygon size $k$.
+
+\input{gen/poly_coefficient_tables.tex}
