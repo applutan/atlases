@@ -1,0 +1,48 @@
+\documentclass[11pt,a4paper,openany]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\geometry{a4paper, left=2.2cm, right=2.2cm, top=2.5cm, bottom=2.5cm}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage{xcolor}
+\definecolor{mosaicblue}{RGB}{74, 128, 196}
+\definecolor{mosaicpink}{RGB}{224, 102, 102}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+
+\usepackage[pdfusetitle, hidelinks, colorlinks=true, linkcolor=blue!70!black, citecolor=blue!70!black, urlcolor=blue!70!black]{hyperref}
+
+\title{\textbf{Atlas of Inscribed Polygons}\\[0.4em]
+\Large The Dihedral Universe from $\mathbb{Z}_1$ to $\mathbb{Z}_{16}$}
+\author{Gemma Knee \and Antigra Vitti}
+\date{November 2026}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\input{sec/Preface.tex}
+
+\tableofcontents
+
+\mainmatter
+
+\input{sec/PolygonGeometry.tex}
+\input{sec/HarmonicTaxonomy.tex}
+\input{sec/VisualAtlas.tex}
+
+\backmatter
+\input{sec/SuggestedReading.tex}
+
+\end{document}

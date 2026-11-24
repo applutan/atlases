@@ -1,0 +1,36 @@
+\chapter{The Dihedral Polygon Census}
+\label{chap:harmonic-taxonomy}
+
+\section{Census from \texorpdfstring{$\mathbb{Z}_1$ to $\mathbb{Z}_{16}$}{Z1 to Z16}}
+
+Table~\ref{tab:poly-census-summary} details the complete census of
+non-equivalent dihedral and cyclic inscribed polygon orbits across the
+circular rings $\mathbb{Z}_1$ through $\mathbb{Z}_{16}$.
+
+\input{gen/poly_summary_table.tex}
+
+The census reveals a phase transition in the emergence of chiral asymmetry:
+\begin{itemize}
+    \item On small rings $\mathbb{Z}_1$ through $\mathbb{Z}_5$, every
+    inscribed polygon is strictly bilaterally symmetric ($0\%$ chirality).
+    \item Chirality first emerges on $\mathbb{Z}_6$ at size $k=3$:
+    the unique scalene triangle $\texttt{/013/}$, whose reflection
+    $\texttt{/023/}$ forms an enantiomorphic partner.
+    \item Chirality expands steadily through $\mathbb{Z}_8$ ($20.0\%$),
+    crosses the $50\%$ majority mark at $\mathbb{Z}_{12}$ ($57.1\%$),
+    and reaches $82.9\%$ at $\mathbb{Z}_{16}$, where $1{,}866$ of the
+    $2{,}250$ orbits are chiral enantiomorphs.
+\end{itemize}
+
+\section{Analytical Invariants and Digital Resource}
+
+Each orbit is uniquely identified by its canonical circular stride
+composition word $c_1 \dots c_k$ (with digit sum $n$ and length
+$k$), local atlas designation $k\text{-}i$, canonical vertex subset
+representative in hexadecimal slash notation $/v_1 \dots v_k/$, dihedral
+orbit length $|\mathcal{O}|$, and binary bilateral reflection flag ($1 =
+\text{achiral}$, $0 = \text{chiral}$).
+
+The complete 5{,}099-orbit inventory is maintained in the companion
+files \path{data/inngons.tsv}, \path{inngons.csv}, and \path{inngons.json}
+for computational querying and stream filtering.

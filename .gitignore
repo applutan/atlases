@@ -1,0 +1,25 @@
+# TeX build outputs
+*.aux
+*.log
+*.toc
+*.lof
+*.loe
+*.out
+*.idx
+*.ilg
+*.ind
+*.synctex.gz
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+
+# Python cache & temp files
+__pycache__/
+*.pyc
+
+# OS / Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

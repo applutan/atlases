@@ -1,0 +1,25 @@
+% Standalone Visual Plates for Inscribed Polygons (Z_3 to Z_16)
+% Decoupled vector plate book for An Atlas of Inscribed Polygons
+\documentclass[11pt,a4paper,openany]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\geometry{a4paper, left=2.2cm, right=2.2cm, top=2.5cm, bottom=2.5cm}
+
+\usepackage{xcolor}
+\definecolor{mosaicblue}{RGB}{74, 128, 196}
+\definecolor{mosaicpink}{RGB}{224, 102, 102}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+
+\usepackage[pdfusetitle, hidelinks]{hyperref}
+
+\pagestyle{empty}
+
+\begin{document}
+\setcounter{chapter}{3}
+\input{../gen/poly_visual_catalogues.tex}
+\end{document}
