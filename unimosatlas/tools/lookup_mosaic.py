@@ -19,8 +19,8 @@ from typing import List, Tuple, Set
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from tools.affine_macro_orbits import find_fixed_point_orbits
-from hexdec.tools.generate_dimers_plates import load_and_sort_dimers
-from hexdec.tools.mosaic_sorting import (
+from unimosatlas.tools.generate_dimers_plates import load_and_sort_dimers
+from unimosatlas.tools.mosaic_sorting import (
     get_mosaic_sort_key,
     is_block_symmetric,
     compute_mosaic_chord_energy,

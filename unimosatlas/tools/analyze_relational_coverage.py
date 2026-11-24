@@ -25,7 +25,7 @@ def parse_args():
         "--blocks-tsv",
         type=str,
         required=True,
-        help="Path to mosaic blocks TSV (e.g. hexdec/data/z16_mosaic_blocks.tsv)"
+        help="Path to mosaic blocks TSV (e.g. unimosatlas/data/z16_mosaic_blocks.tsv)"
     )
     parser.add_argument(
         "--inngons-tsv",

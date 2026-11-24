@@ -423,10 +423,10 @@ int main() {
     // Part 3: 10368..15552 (54 pp)
     // Part 4: 15552..20721 (54 pp, last page has 81 items)
     const size_t part_size = 54 * 96; // 5184
-    write_part_tex("hexdec/plates/tetramers_part1.tex", tetramers, 0, part_size);
-    write_part_tex("hexdec/plates/tetramers_part2.tex", tetramers, part_size, 2 * part_size);
-    write_part_tex("hexdec/plates/tetramers_part3.tex", tetramers, 2 * part_size, 3 * part_size);
-    write_part_tex("hexdec/plates/tetramers_part4.tex", tetramers, 3 * part_size, tetramers.size());
+    write_part_tex("unimosatlas/plates/tetramers_part1.tex", tetramers, 0, part_size);
+    write_part_tex("unimosatlas/plates/tetramers_part2.tex", tetramers, part_size, 2 * part_size);
+    write_part_tex("unimosatlas/plates/tetramers_part3.tex", tetramers, 2 * part_size, 3 * part_size);
+    write_part_tex("unimosatlas/plates/tetramers_part4.tex", tetramers, 3 * part_size, tetramers.size());
 
     auto t1 = chrono::high_resolution_clock::now();
     cout << "✓ All 4 LaTeX part files generated in "

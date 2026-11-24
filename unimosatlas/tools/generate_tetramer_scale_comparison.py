@@ -19,7 +19,7 @@ from typing import List, Tuple
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from tools.affine_macro_orbits import get_fixed_partitions
-from hexdec.tools.mosaic_sorting import (
+from unimosatlas.tools.mosaic_sorting import (
     is_block_symmetric,
     compute_mosaic_chord_energy,
     get_block_canonical_stride,

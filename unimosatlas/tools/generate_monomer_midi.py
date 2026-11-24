@@ -135,7 +135,7 @@ def create_monomer_midi(blocks: list, output_path: str, bars: int = 4, bpm: int 
 
 def main():
     parser = argparse.ArgumentParser(description="Generate MIDI files for the 14 Monomers of z_4^4.")
-    parser.add_argument("--outdir", default="hexdec/midi", help="Output directory for MIDI files (default: hexdec/midi)")
+    parser.add_argument("--outdir", default="unimosatlas/midi", help="Output directory for MIDI files (default: unimosatlas/midi)")
     parser.add_argument("--bars", type=int, default=4, help="Number of bars to play (default: 4)")
     parser.add_argument("--bpm", type=int, default=120, help="Tempo in BPM (default: 120)")
     parser.add_argument("--instruments", type=int, nargs=4, default=[36, 38, 42, 75],

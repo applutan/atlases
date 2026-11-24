@@ -18,7 +18,7 @@ import argparse
 from typing import List, Tuple
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from hexdec.tools.extract_doublets import extract_all_doublets
+from unimosatlas.tools.extract_doublets import extract_all_doublets
 
 def is_block_symmetric(block, n=16):
     """Check if block is symmetric under reflection in Z_n."""
@@ -157,7 +157,7 @@ def main():
     parser = argparse.ArgumentParser(description="Generate TikZ plates for the 295 Doublets.")
     parser.add_argument("--cols", type=int, default=5, help="Columns per page (default: 5)")
     parser.add_argument("--rows", type=int, default=5, help="Rows per page (default: 5)")
-    parser.add_argument("--outdir", default="hexdec/tkz/doublets", help="Output directory for TikZ files")
+    parser.add_argument("--outdir", default="unimosatlas/tkz/doublets", help="Output directory for TikZ files")
     parser.add_argument("--scale", type=float, default=0.95, help="TikZ scale (default: 0.95)")
     args = parser.parse_args()
     

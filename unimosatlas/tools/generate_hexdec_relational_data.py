@@ -9,10 +9,10 @@ Bridges the composition mosaics of Hexadecality:
 to the dihedral inscribed polygon orbits of polyatlas (polyatlas/data/inngons.tsv).
 
 Produces normalized, greppable TSV relational datasets:
-  - hexdec/data/z4_mosaics.tsv & z4_mosaic_blocks.tsv
-  - hexdec/data/z9_mosaics.tsv & z9_mosaic_blocks.tsv
-  - hexdec/data/z16_mosaics.tsv & z16_mosaic_blocks.tsv
-  - hexdec/data/z16_macro_mosaics.tsv & z16_macro_mosaic_blocks.tsv (primary representatives)
+  - unimosatlas/data/z4_mosaics.tsv & z4_mosaic_blocks.tsv
+  - unimosatlas/data/z9_mosaics.tsv & z9_mosaic_blocks.tsv
+  - unimosatlas/data/z16_mosaics.tsv & z16_mosaic_blocks.tsv
+  - unimosatlas/data/z16_macro_mosaics.tsv & z16_macro_mosaic_blocks.tsv (primary representatives)
 
 Features:
   - Exact manifest syntax: [class]@[root][chirality]:[strides]
@@ -52,14 +52,14 @@ def parse_args():
     parser.add_argument(
         "--hexdec-index",
         type=str,
-        default="hexdec/data/hexadecality_index.txt",
+        default="unimosatlas/data/hexadecality_index.txt",
         help="Path to hexadecality_index.txt"
     )
     parser.add_argument(
         "--out-dir",
         type=str,
-        default="hexdec/data",
-        help="Output directory for generated TSV files (default: hexdec/data)"
+        default="unimosatlas/data",
+        help="Output directory for generated TSV files (default: unimosatlas/data)"
     )
     parser.add_argument(
         "--verify",

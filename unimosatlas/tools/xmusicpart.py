@@ -1,1 +1,1 @@
-xmusicpartner.py
+../../tools/xmusicpartner.py

@@ -1,1 +1,1 @@
-midipartner.py
+../../tools/midipartner.py

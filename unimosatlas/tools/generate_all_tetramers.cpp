@@ -340,7 +340,7 @@ int main(int argc, char* argv[]) {
     cout << "Classification complete: " << tetramers.size() << " tetramers." << endl;
 
     // Export to text file if requested
-    string out_path = (argc > 1) ? argv[1] : "hexdec/data/tetramers_full_index.txt";
+    string out_path = (argc > 1) ? argv[1] : "unimosatlas/data/tetramers_full_index.txt";
     cout << "Exporting full tetramer index to " << out_path << "..." << endl;
     ofstream fout(out_path);
     fout << "# ==============================================================================\n";

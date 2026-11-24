@@ -16,7 +16,7 @@ import math
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from tools.affine_macro_orbits import find_fixed_point_orbits
-from hexdec.tools.mosaic_sorting import get_mosaic_sort_key, is_block_symmetric
+from unimosatlas.tools.mosaic_sorting import get_mosaic_sort_key, is_block_symmetric
 
 def get_hexadecagon_coords(r=0.875):
     coords = []
