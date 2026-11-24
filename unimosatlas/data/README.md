@@ -17,7 +17,7 @@ Accompanying monograph: *Hexadecality: The Atlas of Hexadecagonal Compositions* 
 * [`z16_macro_mosaic_blocks.tsv`](z16_macro_mosaic_blocks.tsv): Relational block decompositions for all 84,120 constituent 4-vertex blocks across the primary macro-orbits, linking each block directly to its parent polygon class in [`polyatlas`](../../polyatlas/data/inngons.tsv).
 * [`z16_mosaics.tsv`](z16_mosaics.tsv): Exhaustive dihedral census of all 83,488 comosaics across all 4 Galois dilation phases ($\mu\_1 = \mathrm{id}, \mu\_3, \mu\_7, \mu\_5$).
 * [`z16_mosaic_blocks.tsv`](z16_mosaic_blocks.tsv): Full relational block decomposition for all 333,952 block records across all 83,488 dihedral comosaics.
-* [`hexadecality_index.txt`](hexadecality_index.txt): Master plate concordance indexing all 21,030 macro-orbits to their exact plate and grid coordinates in the 251-page monograph.
+* [`hexadecality_index.txt`](hexadecality_index.txt): Master plate concordance indexing all 21,030 macro-orbits to their exact plate and grid coordinates in the 252-page monograph.
 * [`tetramers_full_index.txt`](tetramers_full_index.txt): Full 20,721-tetramer catalogue sorted via the 5-tier natural sorting cascade.
 * [`doublets.json`](doublets.json): Structured JSON array of mutually orthogonal partition doublets on $\mathbb{Z}\_{16}$.
 

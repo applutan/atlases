@@ -16,8 +16,6 @@ book: $(BOOK_PDF)
 
 $(BOOK_PDF): $(BOOK_TEX) $(SECS) $(TKZS) $(PREAMBLE)
 	pdflatex -interaction=nonstopmode $(BOOK_TEX)
-	bibtex $(BOOK_BASE)
-	pdflatex -interaction=nonstopmode $(BOOK_TEX)
 	pdflatex -interaction=nonstopmode $(BOOK_TEX)
 	@echo "✓ Successfully compiled Coffee Table Book: $(BOOK_PDF)"
 
