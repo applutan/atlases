@@ -149,8 +149,14 @@ def generate_t00646_1_dil(output_path="hexdec/tkz/T00646-1-dil.tkz"):
     print(f"✓ Generated {output_path}")
 
 def main():
-    generate_t00646()
-    generate_t00646_1_dil()
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate intro TikZ figures for Hexadecality (T00646.tkz and T00646-1-dil.tkz).")
+    default_dir = os.path.join(os.path.dirname(__file__), "..", "tkz")
+    parser.add_argument("-d", "--out-dir", type=str, default=default_dir, help=f"Output directory (default: {default_dir})")
+    args = parser.parse_args()
+    os.makedirs(args.out_dir, exist_ok=True)
+    generate_t00646(os.path.join(args.out_dir, "T00646.tkz"))
+    generate_t00646_1_dil(os.path.join(args.out_dir, "T00646-1-dil.tkz"))
 
 if __name__ == "__main__":
     main()

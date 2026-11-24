@@ -147,4 +147,8 @@ def compute_d9_tiered():
         print(f"    Strides: {strides}")
 
 if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Compute D_9 Trimers using the exact 5-tier natural sorting cascade.")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Print detailed decomposition steps")
+    args = parser.parse_args()
     compute_d9_tiered()

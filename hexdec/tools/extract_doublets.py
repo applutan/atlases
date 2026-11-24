@@ -139,4 +139,23 @@ def extract_all_doublets(n=16, k=4, s=4):
     return doublets
 
 if __name__ == "__main__":
+    import argparse
+    import json
+    parser = argparse.ArgumentParser(description="Extract and catalog all 295 Doublets of z_4^4 on Z_16.")
+    default_out = os.path.join(os.path.dirname(__file__), "..", "data", "doublets.json")
+    parser.add_argument("-o", "--out", type=str, default=default_out, help=f"Output path for JSON catalog (default: {default_out})")
+    args = parser.parse_args()
+
     doublets = extract_all_doublets(16, 4, 4)
+    data = []
+    for p1, p2, sz1, sz2 in doublets:
+        data.append({
+            "p1": [sorted(list(b)) for b in p1],
+            "p2": [sorted(list(b)) for b in p2],
+            "sz1": sz1,
+            "sz2": sz2,
+        })
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+    with open(args.out, "w", encoding="utf-8") as f:
+        json.dump(data, f)
+    print(f"✓ Saved {len(data)} doublets to {args.out}")

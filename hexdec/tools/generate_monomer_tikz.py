@@ -86,5 +86,9 @@ def generate_monomers_tikz(output_path):
     print(f"✓ Generated {output_path} with {len(monomers)} sorted monomers.")
 
 if __name__ == "__main__":
-    out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_14_monomers.tkz")
-    generate_monomers_tikz(out)
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate TikZ figures for the 14 Monomer Mosaics of z_4^4 on Z_16.")
+    default_out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_14_monomers.tkz")
+    parser.add_argument("-o", "--out", type=str, default=default_out, help=f"Output path (default: {default_out})")
+    args = parser.parse_args()
+    generate_monomers_tikz(args.out)

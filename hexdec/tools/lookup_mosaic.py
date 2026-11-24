@@ -19,7 +19,6 @@ from typing import List, Tuple, Set
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from tools.affine_macro_orbits import find_fixed_point_orbits
-from hexdec.tools.inspect_first_tetramers import extract_high_symmetry_tetramers, format_partition_slash
 from hexdec.tools.generate_dimers_plates import load_and_sort_dimers
 from hexdec.tools.mosaic_sorting import (
     get_mosaic_sort_key,
@@ -27,6 +26,7 @@ from hexdec.tools.mosaic_sorting import (
     compute_mosaic_chord_energy,
     get_chirality_signature,
     get_block_canonical_stride,
+    format_partition_slash,
 )
 
 n = 16

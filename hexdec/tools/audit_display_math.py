@@ -39,8 +39,15 @@ def audit_file(filepath: str) -> int:
     return violations
 
 def main():
-    target_dir = sys.argv[1] if len(sys.argv) > 1 else "hexdec"
-    tex_files = sorted(glob.glob(os.path.join(target_dir, "**", "*.tex"), recursive=True))
+    import argparse
+    parser = argparse.ArgumentParser(description="Audit LaTeX files for display math punctuation bacilli.")
+    parser.add_argument("path", nargs="?", default="hexdec", help="Target directory or TeX file to audit (default: hexdec)")
+    args = parser.parse_args()
+
+    if os.path.isfile(args.path):
+        tex_files = [args.path]
+    else:
+        tex_files = sorted(glob.glob(os.path.join(args.path, "**", "*.tex"), recursive=True))
 
     total_violations = 0
     audited_count = 0

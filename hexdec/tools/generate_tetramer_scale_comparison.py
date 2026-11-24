@@ -14,11 +14,86 @@ Author: Gemma Knee
 import sys
 import os
 import math
+import argparse
 from typing import List, Tuple
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from hexdec.tools.inspect_first_tetramers import extract_high_symmetry_tetramers
-from hexdec.tools.mosaic_sorting import is_block_symmetric
+from tools.affine_macro_orbits import get_fixed_partitions
+from hexdec.tools.mosaic_sorting import (
+    is_block_symmetric,
+    compute_mosaic_chord_energy,
+    get_block_canonical_stride,
+)
+
+def extract_high_symmetry_tetramers(n=16, k=4, s=4):
+    d_n_elements = [(a, b) for a in [1, 15] for b in range(16)]
+
+    def apply_d(part, a, b):
+        return frozenset(frozenset((a * x + b) % n for x in blk) for blk in part)
+
+    def apply_mu(part, mult):
+        return frozenset(frozenset((mult * x) % n for x in blk) for blk in part)
+
+    order2_elements = [(1, 8)] + [(15, b) for b in range(16)]
+    all_fixed = set()
+    for a, b in order2_elements:
+        perm = [(a * x + b) % n for x in range(n)]
+        pts = get_fixed_partitions(perm, 4, 4)
+        all_fixed.update(pts)
+
+    orbits = {}
+    visited = set()
+    for p in all_fixed:
+        if p in visited:
+            continue
+        orb = frozenset(apply_d(p, a, b) for a, b in d_n_elements)
+        visited.update(orb)
+        orbits[orb] = len(orb)
+
+    visited_orbs = set()
+    tetramers = []
+
+    for o, sz in orbits.items():
+        if o in visited_orbs:
+            continue
+        rep = sorted(list(o), key=lambda p: sorted([sorted(list(b)) for b in p]))[0]
+        rep_mu3 = apply_mu(rep, 3)
+        o2 = frozenset(apply_d(rep_mu3, a, b) for a, b in d_n_elements)
+        if o2 == o:
+            continue
+        rep_mu9 = apply_mu(rep_mu3, 3)
+        o3 = frozenset(apply_d(rep_mu9, a, b) for a, b in d_n_elements)
+        if o3 == o:
+            continue
+        rep_mu27 = apply_mu(rep_mu9, 3)
+        o4 = frozenset(apply_d(rep_mu27, a, b) for a, b in d_n_elements)
+
+        visited_orbs.add(o)
+        visited_orbs.add(o2)
+        visited_orbs.add(o3)
+        visited_orbs.add(o4)
+
+        # For each of the 4 orbits, find canonical cycle where p1 has highest symmetry/energy
+        candidate_cycles = []
+        for cand_o in [o, o2, o3, o4]:
+            c_rep = sorted(list(cand_o), key=lambda p: sorted([sorted(list(b)) for b in p]))[0]
+            cp1 = [sorted(list(b)) for b in c_rep]
+            cp2 = sorted([sorted([(3 * x) % 16 for x in b]) for b in cp1])
+            cp3 = sorted([sorted([(7 * x) % 16 for x in b]) for b in cp1])
+            cp4 = sorted([sorted([(5 * x) % 16 for x in b]) for b in cp1])
+
+            s_count = sum(1 for b in cp1 if is_block_symmetric(b, 16))
+            e = compute_mosaic_chord_energy(cp1, 16)
+            strides = tuple(sorted(get_block_canonical_stride(b, 16) for b in cp1))
+            key = (sz, -s_count, -e, strides, tuple(tuple(b) for b in cp1))
+            candidate_cycles.append((key, (cp1, cp2, cp3, cp4)))
+
+        candidate_cycles.sort(key=lambda x: x[0])
+        best_key, best_cycle = candidate_cycles[0]
+        tetramers.append((best_key, best_cycle, sz))
+
+    tetramers.sort(key=lambda x: x[0])
+    return tetramers
 
 def get_hexadecagon_vertex_coords(cx: float, cy: float, r: float) -> List[Tuple[float, float]]:
     """Return the 16 (x, y) coordinates of regular hexadecagon with vertex 0 at 90 deg."""
@@ -63,24 +138,24 @@ def render_linear_cartouche(cx: float, cy: float, t_num: int, orb_sz: int,
     w_half = 1.5 * d_inner + pad_x
     h_half = r + pad_y
 
-    bx1 = cx - w_half
-    bx2 = cx + w_half
-    by1 = cy - h_half
-    by2 = cy + h_half
+    x_min = cx - w_half
+    x_max = cx + w_half
+    y_min = cy - h_half
+    y_max = cy + h_half
 
-    lines.append(f"\n  % --- Linear Cartouche #{t_num} (|O|={orb_sz}) ---")
-    lines.append(f"  \\draw[draw=blue!20!black!25, fill=blue!1.5!black!0.8, rounded corners=5pt, line width=0.45pt] ({bx1:.2f}, {by1:.2f}) rectangle ({bx2:.2f}, {by2:.2f});")
+    # Rounded cartouche frame
+    lines.append(f"  % Cartouche T{t_num:05d} (|O|={orb_sz})")
+    lines.append(f"  \\draw[draw=blue!20!black!25, fill=blue!1.5!black!0.8, rounded corners=3.5pt, line width=0.45pt] ({x_min:.2f}, {y_min:.2f}) rectangle ({x_max:.2f}, {y_max:.2f});")
 
-    # Badges
-    lines.append(f"  \\node[anchor=west, fill=white, draw=blue!30!black!30, rounded corners=2pt, inner sep=1.5pt, font={font_badge}\\bfseries\\sffamily] at ({bx1 + 0.14:.2f}, {by2:.2f}) {{{t_num}}};")
-    lines.append(f"  \\node[anchor=east, font=\\tiny\\color{{black!55}}] at ({bx2 - 0.16:.2f}, {by1 + 0.16:.2f}) {{{orb_sz}}};")
+    # Minimalist identification badge
+    badge_x = x_min + 0.22
+    lines.append(f"  \\node[anchor=west, fill=white, draw=blue!30!black!30, rounded corners=2pt, inner sep=1.4pt, font={font_badge}\\bfseries\\sffamily] at ({badge_x:.2f}, {y_max:.2f}) {{{t_num}}};")
 
-    # Mosaics left-to-right
+    # Render 4 mosaics at x-offsets: -1.5*d, -0.5*d, +0.5*d, +1.5*d
+    offsets = [-1.5 * d_inner, -0.5 * d_inner, 0.5 * d_inner, 1.5 * d_inner]
     for step in range(4):
-        mx = cx - 1.5 * d_inner + step * d_inner
-        my = cy
-        p = cycle[step]
-        lines.extend(render_mosaic_tikz(mx, my, r, p))
+        mx = cx + offsets[step]
+        lines.extend(render_mosaic_tikz(mx, cy, r, cycle[step]))
 
     return lines
 
@@ -89,66 +164,58 @@ def generate_comparison_plate(output_path: str):
     print(f"Extracted {len(tetramers)} high-symmetry tetramers. Generating linear comparison plate...")
 
     lines = []
-    lines.append("% TikZ Plate: Tetramer Publishing Scale Comparison (Linear 1x4 Strips)")
-    lines.append("% Strictly left-to-right: mu_1 -> mu_3 -> mu_7 -> mu_5")
-    lines.append("\\begin{tikzpicture}[>=latex, line join=round, line cap=round, scale=1.0]")
+    lines.append("% TikZ Plate: Comparative Publishing Scales for Linear Tetramer Cartouches")
+    lines.append("% Author: Gemma Knee & Antigra Vitti (November 2026)")
+    lines.append("\\begin{tikzpicture}[>=latex, line join=round, line cap=round, scale=0.96]")
 
     x_left_label = 0.0
     x_right_label = 15.0
 
     # -------------------------------------------------------------
-    # TIER 1: Micro-Atlas (220-page model, 96 tetramers/page)
-    # 4 cartouches side by side: T1..T4
-    # r = 0.35 cm (dia = 7.0 mm), d_inner = 0.80 cm, pad_x = 0.42 cm, pad_y = 0.40 cm
-    # Box width = 3 * 0.80 + 0.84 = 3.24 cm
-    # Pitch dx = 3.75 cm
+    # TIER 1: Micro-Atlas (220-page model)
     # -------------------------------------------------------------
     r1 = 0.35
-    d_inner1 = 0.80
-    pad_x1 = 0.42
-    pad_y1 = 0.40
-    y1 = 0.0
+    d_inner1 = 0.82
+    pad_x1 = 0.45
+    pad_y1 = 0.28
 
-    lines.append("\n  % ==========================================================")
+    lines.append("  % ==========================================================")
     lines.append("  % TIER 1: Micro-Atlas Model (220 Pages, 96 Tetramers / Page)")
     lines.append("  % Tetramers 1..4 (Diameter = 7.0 mm, Linear 1x4 Strip)")
     lines.append("  % ==========================================================")
-    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, {y1 + 1.15:.2f}) {{I. Micro-Atlas Model (220 pp, 96/page, $\\varnothing = 7.0\\text{{ mm}}$, linear strip)}};")
-    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, {y1 + 1.15:.2f}) {{Tetramers $T_1 \\dots T_4$ ($|O|=4, 8$)}};")
+    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, 0.55) {{I. Compact Reference Atlas Model (220 pp, 96/page, $\\varnothing = 7.0\\text{{ mm}}$, linear strip)}};")
+    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, 0.55) {{Tetramers $T_1 \\dots T_4$ ($|O|=4$)}};")
 
-    x_start1 = 1.88
+    x_start1 = 1.85
     dx1 = 3.75
+    y1 = -0.55
     for idx in range(4):
         t_key, t_cycle, t_sz = tetramers[idx]
         cx = x_start1 + idx * dx1
         lines.extend(render_linear_cartouche(
             cx=cx, cy=y1, t_num=idx + 1, orb_sz=t_sz, cycle=t_cycle,
-            r=r1, d_inner=d_inner1, pad_x=pad_x1, pad_y=pad_y1, font_badge="\\scriptsize"
+            r=r1, d_inner=d_inner1, pad_x=pad_x1, pad_y=pad_y1, font_badge="\\tiny"
         ))
 
     # -------------------------------------------------------------
-    # TIER 2: Luxury Monograph (432-page model, 48 tetramers/page)
-    # 4 cartouches in 2 rows of 2: T5..T8
-    # r = 0.53 cm (dia = 10.6 mm), d_inner = 1.30 cm, pad_x = 0.65 cm, pad_y = 0.55 cm
-    # Box width = 3 * 1.30 + 1.30 = 5.20 cm
-    # Pitch dx = 7.50 cm
+    # TIER 2: Luxury Monograph (432-page model)
     # -------------------------------------------------------------
     r2 = 0.53
-    d_inner2 = 1.30
+    d_inner2 = 1.25
     pad_x2 = 0.65
-    pad_y2 = 0.55
+    pad_y2 = 0.42
 
     lines.append("\n  % ==========================================================")
     lines.append("  % TIER 2: Luxury Monograph Model (432 Pages, 48 Tetramers / Page)")
     lines.append("  % Tetramers 5..8 (Diameter = 10.6 mm, Linear 1x4 Strip)")
     lines.append("  % ==========================================================")
-    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, {-2.25:.2f}) {{II. Luxury Monograph Model (432 pp, 48/page, $\\varnothing = 10.6\\text{{ mm}}$, linear strip)}};")
-    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, {-2.25:.2f}) {{Tetramers $T_5 \\dots T_8$ ($|O|=8$)}};")
+    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, -2.45) {{II. Luxury Monograph Model (432 pp, 48/page, $\\varnothing = 10.6\\text{{ mm}}$, linear strip)}};")
+    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, -2.45) {{Tetramers $T_5 \\dots T_8$ ($|O|=4$)}};")
 
-    x_start2 = 3.75
-    dx2 = 7.50
+    x_start2 = 2.75
+    dx2 = 5.50
     # Row 1 of Tier 2: T5, T6
-    y2_r1 = -3.70
+    y2_r1 = -3.95
     for i, idx in enumerate([4, 5]):
         t_key, t_cycle, t_sz = tetramers[idx]
         cx = x_start2 + i * dx2
@@ -158,7 +225,7 @@ def generate_comparison_plate(output_path: str):
         ))
 
     # Row 2 of Tier 2: T7, T8
-    y2_r2 = -6.20
+    y2_r2 = -6.15
     for i, idx in enumerate([6, 7]):
         t_key, t_cycle, t_sz = tetramers[idx]
         cx = x_start2 + i * dx2
@@ -168,14 +235,10 @@ def generate_comparison_plate(output_path: str):
         ))
 
     # -------------------------------------------------------------
-    # TIER 3: Gold-Tooled Leather-Bound (864-page model, 24 tetramers/page)
-    # 4 cartouches in 2 rows of 2: T9..T12
-    # r = 0.75 cm (dia = 15.0 mm), d_inner = 1.80 cm, pad_x = 0.85 cm, pad_y = 0.70 cm
-    # Box width = 3 * 1.80 + 1.70 = 7.10 cm
-    # Pitch dx = 7.50 cm
+    # TIER 3: Gold-Tooled Leather-Bound (864-page model)
     # -------------------------------------------------------------
     r3 = 0.75
-    d_inner3 = 1.80
+    d_inner3 = 1.75
     pad_x3 = 0.85
     pad_y3 = 0.70
 
@@ -183,8 +246,8 @@ def generate_comparison_plate(output_path: str):
     lines.append("  % TIER 3: Gold-Tooled Leather-Bound Model (864 Pages, 24 Tetramers / Page)")
     lines.append("  % Tetramers 9..12 (Diameter = 15.0 mm, Linear 1x4 Strip)")
     lines.append("  % ==========================================================")
-    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, {-8.45:.2f}) {{III. Gold-Tooled Leather-Bound Model (864 pp, 24/page, $\\varnothing = 15.0\\text{{ mm}}$, linear strip)}};")
-    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, {-8.45:.2f}) {{Tetramers $T_9 \\dots T_{12}$ ($|O|=8$)}};")
+    lines.append(f"  \\node[anchor=west, font=\\bfseries\\sffamily\\small, color=blue!75!black] at ({x_left_label:.2f}, -8.45) {{III. Gold-Tooled Leather-Bound Model (864 pp, 24/page, $\\varnothing = 15.0\\text{{ mm}}$, linear strip)}};")
+    lines.append(f"  \\node[anchor=east, font=\\itshape\\scriptsize, color=black!60] at ({x_right_label:.2f}, -8.45) {{Tetramers $T_9 \\dots T_{12}$ ($|O|=8$)}};")
 
     x_start3 = 3.75
     dx3 = 7.50
@@ -211,10 +274,23 @@ def generate_comparison_plate(output_path: str):
     lines.append("\\end{tikzpicture}")
 
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
     print(f"✓ Generated linear tetramer comparison plate at {output_path}")
 
+def main():
+    parser = argparse.ArgumentParser(
+        description="Generate comparative TikZ plate for publishing densities of linear tetramer cartouches."
+    )
+    default_out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_tetramer_scale_comparison.tkz")
+    parser.add_argument(
+        "-o", "--out",
+        type=str,
+        default=default_out,
+        help=f"Output path for generated TikZ file (default: {default_out})"
+    )
+    args = parser.parse_args()
+    generate_comparison_plate(args.out)
+
 if __name__ == "__main__":
-    out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_tetramer_scale_comparison.tkz")
-    generate_comparison_plate(out)
+    main()

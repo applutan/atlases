@@ -134,5 +134,11 @@ def analyze_universe(n, k, block_size):
             print(f"  Rep: {rep} | Dihedral sizes: {d_sizes}")
 
 if __name__ == "__main__":
-    analyze_universe(4, 2, 2)
-    analyze_universe(9, 3, 3)
+    import argparse
+    parser = argparse.ArgumentParser(description="Rigorous Algebraic Census of D_4 (z_2^2) and D_9 (z_3^3) Universes.")
+    parser.add_argument("--universe", choices=["all", "z4", "z9"], default="all", help="Target universe to analyze (default: all)")
+    args = parser.parse_args()
+    if args.universe in ("all", "z4"):
+        analyze_universe(4, 2, 2)
+    if args.universe in ("all", "z9"):
+        analyze_universe(9, 3, 3)

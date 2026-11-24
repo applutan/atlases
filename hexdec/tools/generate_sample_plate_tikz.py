@@ -130,5 +130,9 @@ def generate_plate_tikz(output_path):
     print(f"✓ Generated {output_path} with 8 hexadecagons in a row.")
 
 if __name__ == "__main__":
-    out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_sample_plate.tkz")
-    generate_plate_tikz(out)
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate prototype TikZ plate showing 8 hexadecagons in a row with cycling arrows.")
+    default_out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_sample_plate.tkz")
+    parser.add_argument("-o", "--out", type=str, default=default_out, help=f"Output path (default: {default_out})")
+    args = parser.parse_args()
+    generate_plate_tikz(args.out)

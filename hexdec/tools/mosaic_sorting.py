@@ -78,3 +78,13 @@ def get_mosaic_sort_key(p, orb_size: int, n=16):
     canon_blocks = tuple(tuple(b) for b in s_blocks)
     
     return (orb_size, -s, -energy, strides, canon_blocks)
+
+def format_partition_slash(partition) -> str:
+    """Format partition as /0149/26AE/37BF/58CD/ using single hexadecimal characters."""
+    blocks = sorted([sorted(list(b)) for b in partition])
+    hex_chars = "0123456789ABCDEF"
+    parts = []
+    for blk in blocks:
+        parts.append("".join(hex_chars[x] for x in blk))
+    return "/" + "/".join(parts) + "/"
+

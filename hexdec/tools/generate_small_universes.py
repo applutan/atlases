@@ -203,7 +203,13 @@ def generate_d9_tikz(output_path: str):
     print(f"✓ Generated D_9 universe TikZ at {output_path}")
 
 if __name__ == "__main__":
-    out_d4 = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_d4_universe.tkz")
-    out_d9 = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_d9_universe.tkz")
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate TikZ plates for small universes D_4 and D_9.")
+    default_dir = os.path.join(os.path.dirname(__file__), "..", "tkz")
+    parser.add_argument("-d", "--out-dir", type=str, default=default_dir, help=f"Output directory (default: {default_dir})")
+    args = parser.parse_args()
+    os.makedirs(args.out_dir, exist_ok=True)
+    out_d4 = os.path.join(args.out_dir, "fig_d4_universe.tkz")
+    out_d9 = os.path.join(args.out_dir, "fig_d9_universe.tkz")
     generate_d4_tikz(out_d4)
     generate_d9_tikz(out_d9)

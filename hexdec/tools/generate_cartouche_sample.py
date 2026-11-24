@@ -122,5 +122,9 @@ def generate_cartouche_tikz(output_path):
     print(f"✓ Generated clean cartouche sample at {output_path}")
 
 if __name__ == "__main__":
-    out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_cartouche_sample.tkz")
-    generate_cartouche_tikz(out)
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate prototype TikZ plate of two cartouched 4-cycle quartets.")
+    default_out = os.path.join(os.path.dirname(__file__), "..", "tkz", "fig_cartouche_sample.tkz")
+    parser.add_argument("-o", "--out", type=str, default=default_out, help=f"Output path (default: {default_out})")
+    args = parser.parse_args()
+    generate_cartouche_tikz(args.out)
