@@ -1,4 +1,3 @@
-# Z_4 Composition Mosaics Catalogue (D_4 Universe, z_2^2)
 orbit_id	macro_id	oligomer_type	phase	dilation_mult	is_primary	orbit_size	stab_size	s_sym	energy	chirality_sig	partition	poly_profile	block_manifest
 M1	M1	Monomer	1	1	1	1	8	2	8	[ss]	/02/13/	2x2-2	2-2@0+:22/2-2@1+:22
 M2	M2	Monomer	1	1	1	2	4	2	2	[ss]	/01/23/	2x2-1	2-1@0+:13/2-1@2+:13

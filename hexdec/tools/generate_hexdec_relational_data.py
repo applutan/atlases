@@ -292,13 +292,11 @@ def generate_z4(inngons_tsv: str, out_dir: str, verify: bool):
     b_path = os.path.join(out_dir, "z4_mosaic_blocks.tsv")
 
     with open(m_path, "w", encoding="utf-8") as f:
-        f.write("# Z_4 Composition Mosaics Catalogue (D_4 Universe, z_2^2)\n")
         f.write("orbit_id\tmacro_id\toligomer_type\tphase\tdilation_mult\tis_primary\torbit_size\tstab_size\ts_sym\tenergy\tchirality_sig\tpartition\tpoly_profile\tblock_manifest\n")
         for r in mosaics_rows:
             f.write("\t".join(str(x) for x in r) + "\n")
 
     with open(b_path, "w", encoding="utf-8") as f:
-        f.write("# Z_4 Mosaic Blocks Relational Bridge (Links to polyatlas inngons.tsv)\n")
         f.write("orbit_id\tmacro_id\tphase\tdilation_mult\tis_primary\tblock_idx\tvertices\tpoly_class\tcanon_comp\trealised_comp\troot\tchirality\tmanifest_token\n")
         for r in blocks_rows:
             f.write("\t".join(str(x) for x in r) + "\n")
@@ -402,13 +400,11 @@ def generate_z9(inngons_tsv: str, out_dir: str, verify: bool):
     b_path = os.path.join(out_dir, "z9_mosaic_blocks.tsv")
 
     with open(m_path, "w", encoding="utf-8") as f:
-        f.write("# Z_9 Composition Mosaics Catalogue (D_9 Universe, z_3^3)\n")
         f.write("orbit_id\tmacro_id\toligomer_type\tphase\tdilation_mult\tis_primary\torbit_size\tstab_size\ts_sym\tenergy\tchirality_sig\tpartition\tpoly_profile\tblock_manifest\n")
         for r in mosaics_rows:
             f.write("\t".join(str(x) for x in r) + "\n")
 
     with open(b_path, "w", encoding="utf-8") as f:
-        f.write("# Z_9 Mosaic Blocks Relational Bridge (Links to polyatlas inngons.tsv)\n")
         f.write("orbit_id\tmacro_id\tphase\tdilation_mult\tis_primary\tblock_idx\tvertices\tpoly_class\tcanon_comp\trealised_comp\troot\tchirality\tmanifest_token\n")
         for r in blocks_rows:
             f.write("\t".join(str(x) for x in r) + "\n")
@@ -449,10 +445,10 @@ def generate_z16(inngons_tsv: str, hexdec_index: str, out_dir: str, verify: bool
     m_header = "orbit_id\tmacro_id\toligomer_type\tphase\tdilation_mult\tis_primary\torbit_size\tstab_size\ts_sym\tenergy\tchirality_sig\tpartition\tpoly_profile\tblock_manifest\n"
     b_header = "orbit_id\tmacro_id\tphase\tdilation_mult\tis_primary\tblock_idx\tvertices\tpoly_class\tcanon_comp\trealised_comp\troot\tchirality\tmanifest_token\n"
 
-    f_m_all.write("# Z_16 Composition Mosaics Dihedral Catalogue (z_4^4, 83,488 Orbits)\n" + m_header)
-    f_b_all.write("# Z_16 Mosaic Blocks Relational Bridge (Links to polyatlas inngons.tsv)\n" + b_header)
-    f_m_macro.write("# Z_16 Affine Macro-Orbits Directory (z_4^4, 21,030 Primary Representatives)\n" + m_header)
-    f_b_macro.write("# Z_16 Macro-Orbit Blocks Relational Bridge (Links to polyatlas inngons.tsv)\n" + b_header)
+    f_m_all.write(m_header)
+    f_b_all.write(b_header)
+    f_m_macro.write(m_header)
+    f_b_macro.write(b_header)
 
     total_macros = 0
     total_comosaics = 0

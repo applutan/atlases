@@ -9,7 +9,7 @@ Accompanying monograph: *The Polygonal Burnsidean: An Atlas of Inscribed Polygon
 ## 1. Files in this Directory
 
 * [`inngons.csv`](inngons.csv): RFC 4180 comma-separated values table (5,100 lines including header).
-* [`inngons.tsv`](inngons.tsv): Tab-delimited table with comment metadata.
+* [`inngons.tsv`](inngons.tsv): Tab-delimited values table.
 * [`inngons.json`](inngons.json): Structured JSON array of record objects.
 
 ---

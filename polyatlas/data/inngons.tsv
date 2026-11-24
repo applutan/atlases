@@ -1,5 +1,3 @@
-# Inscribed Polygons Dihedral Orbit Census (Z_1 to Z_16)
-# Fields: composition, class_id, n, k, subset, orbit_size, is_achiral
 composition	class_id	n	k	subset	orbit_size	is_achiral
 ---	0-1	1	0	//	1	1
 1	1-1	1	1	/0/	1	1
