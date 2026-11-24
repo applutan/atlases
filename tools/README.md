@@ -62,7 +62,7 @@ python3 tools/affine_macro_orbits.py -n 9 -k 3 -s 3
 
 ## 3. Musical Translation & Engraving Suite
 
-Translates the geometric and combinatorial structure of cyclic partitions into multi-voice polyrhythmic percussion scores and MIDI performances:
+Translates the geometric and combinatorial structure of cyclic partitions into multi-voice polyrhythmic percussion scores and MIDI performances. See the complete reference manual in [`PERCUSSION_SUITE.md`](PERCUSSION_SUITE.md) for full acoustic voice mappings, metric pulse groupings, and advanced CLI parameters.
 
 ### Interlocking MIDI Synthesizer (`midipartner.py`)
 Generates multi-track MIDI performances from canonical partition strings across any circular lattice $\mathbb{Z}_n$:

@@ -99,7 +99,7 @@ Shell automation scripts for parallel LaTeX compilation of tetramer plate chunks
 
 ## 4. Musical Engraving & Audio Synthesis (Shared Toolsuite)
 
-Symlinked into the project-wide toolchain at [`atlases/tools/`](../../tools/):
+Symlinked into the project-wide toolchain at [`atlases/tools/`](../../tools/). For the complete acoustic mapping guide, rhythmic analysis, and advanced CLI parameters, see [`atlases/tools/PERCUSSION_SUITE.md`](../../tools/PERCUSSION_SUITE.md).
 
 * **`midipartner.py`** (aliased as `midipart` / `partition_to_midi.py`):
   Synthesizes any valid mosaic partition into a multi-track General MIDI percussion loop on Channel 10:
