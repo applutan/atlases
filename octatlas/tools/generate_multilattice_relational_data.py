@@ -207,9 +207,8 @@ def main():
                 poly_classes.append(emb["poly_class"])
 
                 all_block_rows.append({
-                    "global_mosaic_id": m_id,
                     "n": n,
-                    "local_mosaic_id": o['local_id'],
+                    "mosaic_id": o['local_id'],
                     "block_idx": b_idx,
                     "vertices": "".join(f"{x:X}" for x in blk),
                     "size": len(blk),
@@ -225,9 +224,8 @@ def main():
             shape_str = "(" + ",".join(str(x) for x in o['shape']) + ")"
 
             all_mosaic_rows.append({
-                "id": m_id,
                 "n": n,
-                "local_id": o['local_id'],
+                "id": o['local_id'],
                 "shape": shape_str,
                 "slash": o['slash'],
                 "orbit_size": o['orbit_size'],
@@ -256,8 +254,8 @@ def main():
     block_csv_path = os.path.join(args.data_dir, "mosaic_blocks.csv")
     block_json_path = os.path.join(args.data_dir, "mosaic_blocks.json")
 
-    mosaic_fieldnames = ["id", "n", "local_id", "shape", "slash", "orbit_size", "stab_size", "s_count", "chirality", "energy", "poly_profile", "manifest"]
-    block_fieldnames = ["global_mosaic_id", "n", "local_mosaic_id", "block_idx", "vertices", "size", "poly_class", "canon_comp", "realised_comp", "root", "chirality"]
+    mosaic_fieldnames = ["n", "id", "shape", "slash", "orbit_size", "stab_size", "s_count", "chirality", "energy", "poly_profile", "manifest"]
+    block_fieldnames = ["n", "mosaic_id", "block_idx", "vertices", "size", "poly_class", "canon_comp", "realised_comp", "root", "chirality"]
 
     # Mosaics TSV
     with open(mosaic_tsv_path, "w", encoding="utf-8", newline="") as f:

@@ -37,9 +37,8 @@ Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral 
 
 | Field | Type | Example | Description |
 | :--- | :--- | :--- | :--- |
-| `id` | Integer | `382` | Global integer index ($1 \dots 509$) spanning the octonary universe. |
 | `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 8\}$. |
-| `local_id` | Integer | `227` | Local integer index within ring $\mathbb{Z}\_n$ ($1 \dots M\_n$). |
+| `id` | Integer | `227` | Canonical ring-local integer index ($1 \dots M\_n$). |
 | `shape` | String | `(2,2,2,2)` | Integer partition shape $\lambda \vdash n$ in descending order. |
 | `slash` | String | `/01/25/37/46/` | Canonical partition representation in hexadecimal slash notation. |
 | `orbit_size` | Integer | `16` | Dihedral orbit length $\lvert \mathcal{O} \rvert \in \{1, \dots, \lvert D\_n \rvert\}$ under the action of $D\_n$. |
@@ -56,9 +55,8 @@ Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral 
 
 | Field | Type | Example | Description |
 | :--- | :--- | :--- | :--- |
-| `global_mosaic_id` | Integer | `382` | Parent mosaic global identifier ($1 \dots 509$). |
 | `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 8\}$. |
-| `local_mosaic_id` | Integer | `227` | Parent mosaic local index within ring $\mathbb{Z}\_n$ ($1 \dots M\_n$). |
+| `mosaic_id` | Integer | `227` | Parent mosaic index within ring $\mathbb{Z}\_n$ ($1 \dots M\_n$). |
 | `block_idx` | Integer | `2` | 1-based index of block within the canonical partition ($1 \dots s$). |
 | `vertices` | String | `25` | Hexadecimal vertex string of block $B$ in circular order. |
 | `size` | Integer | `2` | Block cardinality $d = \lvert B \rvert$. |
@@ -82,4 +80,4 @@ where:
 * **Chirality**: Orientation sign relative to canonical form (`+` for direct rotational translation, `-` for retrograde / flipped).
 * **Realised Strides**: The forward cyclic strides along the perimeter of block $B$ starting from $v\_0$.
 
-For example, in Mosaic `33` on $\mathbb{Z}\_6$ (`/013/245/`), the manifest is `3-3@0+:123/3-3@2-:213`, showing that the two chiral scalene triangles partition the hexagon as an enantiomorphic direct-and-reflected pair. In Mosaic `382` on $\mathbb{Z}\_8$ (`/01/25/37/46/`), the four chords realise the cyclic Skolem sequence spanning distances 1, 2, 3, 4 through classes `2-1`, `2-2`, `2-3`, and `2-4`.
+For example, in Mosaic `8` on $\mathbb{Z}\_6$ (`/013/245/`), the manifest is `3-3@0+:123/3-3@2-:213`, showing that the two chiral scalene triangles partition the hexagon as an enantiomorphic direct-and-reflected pair. In Mosaic `227` on $\mathbb{Z}\_8$ (`/01/25/37/46/`), the four chords realise the cyclic Skolem sequence spanning distances 1, 2, 3, 4 through classes `2-1`, `2-2`, `2-3`, and `2-4`.

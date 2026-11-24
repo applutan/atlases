@@ -21,51 +21,20 @@ Each drawing portrays an individual dihedral orbit through its canonical represe
     \end{itemize}
     \item \textbf{Orbit Invariants}:
     \begin{itemize}
-        \item \textbf{Upper-Left Index}: Bold global integer identifier ($1 \dots 509$) referencing the master catalogue in Section~\ref{sec:relational-datasets} and \path{data/mosaics.tsv}.
-        \item \textbf{Upper-Right Ring}: Cyclic ring order $\mathbb{Z}_n$.
+        \item \textbf{Upper-Left Index}: Bold ring-local integer identifier ($1 \dots M_n$) referencing the master catalogue in Section~\ref{sec:relational-datasets} and \path{data/mosaics.tsv}.
         \item \textbf{Lower-Right Orbit Size}: Dihedral orbit length $|\mathcal{O}| \in \{1, \dots, |D_n|\}$ under the action of $D_n$.
     \end{itemize}
 \end{itemize}
 
-\section*{Visual Plate Directory}
-
-The 509 mosaics are distributed across ten vector plates:
-\begin{itemize}
-    \item \textbf{Plate 1} (Page~\pageref{plate:1}): Lattices $\mathbb{Z}_1$ through $\mathbb{Z}_5$ (Orbits 1--25).
-    \item \textbf{Plate 2} (Page~\pageref{plate:2}): Lattice $\mathbb{Z}_6$ (Orbits 26--62).
-    \item \textbf{Plate 3} (Page~\pageref{plate:3}): Lattice $\mathbb{Z}_7$ Part I (Orbits 63--122).
-    \item \textbf{Plate 4} (Page~\pageref{plate:4}): Lattice $\mathbb{Z}_7$ Part II (Orbits 123--155).
-    \item \textbf{Plates 5--10} (Pages~\pageref{plate:5}--\pageref{plate:10}): Lattice $\mathbb{Z}_8$ (Orbits 156--509).
-\end{itemize}
-
 \clearpage
-\phantomsection
-\label{plate:1}
-\includepdf[pages=1, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:2}
-\includepdf[pages=2, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:3}
-\includepdf[pages=3, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:4}
-\includepdf[pages=4, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:5}
-\includepdf[pages=5, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:6}
-\includepdf[pages=6, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:7}
-\includepdf[pages=7, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:8}
-\includepdf[pages=8, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:9}
-\includepdf[pages=9, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
-\phantomsection
-\label{plate:10}
-\includepdf[pages=10, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
+\includepdf[
+  pages=-,
+  offset=0 -16mm,
+  pagecommand={\thispagestyle{headings}},
+  addtotoc={
+     1, section, 1, {The Small Cyclic Lattices \texorpdfstring{($\mathbb{Z}_1$ through $\mathbb{Z}_5$)}{}}, sec:ring-z1-z5,
+     2, section, 1, {The Hexagonal Lattice \texorpdfstring{$\mathbb{Z}_6$}{Z6}}, sec:ring-z6,
+     3, section, 1, {The Heptagonal Lattice \texorpdfstring{$\mathbb{Z}_7$}{Z7}}, sec:ring-z7,
+     5, section, 1, {The Octagonal Lattice \texorpdfstring{$\mathbb{Z}_8$}{Z8}}, sec:ring-z8
+  }
+]{plates/plates_z1_z8.pdf}

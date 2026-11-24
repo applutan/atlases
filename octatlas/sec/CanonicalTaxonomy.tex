@@ -26,7 +26,7 @@ The $509$ dihedral composition mosaics across $\mathbb{Z}_1$ through $\mathbb{Z}
     \end{itemize}
 \end{enumerate}
 
-Every orbit is assigned both a global integer identifier $1 \dots 509$ spanning the full octonary universe and a local ring identifier $1 \dots M_n$, directly matching its appearance in the visual plates of Chapter~\ref{chap:visual-atlas}.
+Every orbit is assigned a canonical integer identifier $1 \dots M_n$ on its respective ring $\mathbb{Z}_n$, matching its corresponding location in the visual atlas of Chapter~\ref{chap:visual-atlas}.
 
 \section{Stratified Partition Shape Inventory}
 
@@ -41,7 +41,7 @@ To provide exhaustive machine-readable accessibility for computational mathemati
 
 \begin{enumerate}
     \item \textbf{Master Mosaic Catalogue (\path{data/mosaics.tsv})}:
-    Contains exactly $509$ records (one per dihedral orbit), cataloguing the global ID ($1 \dots 509$), ring order $n$, local ID ($1 \dots M_n$), shape $\lambda$, canonical slash representation, dihedral invariants ($|\mathcal{O}|$, $|\operatorname{Stab}|$, $s_{\text{sym}}$, chirality signature), chord dispersion energy $E$, polyatlas polygon profile, and the full relational \emph{block manifest}.
+    Contains exactly $509$ records (one per dihedral orbit), cataloguing the ring order $n$, local ID ($1 \dots M_n$), shape $\lambda$, canonical slash representation, dihedral invariants ($|\mathcal{O}|$, $|\operatorname{Stab}|$, $s_{\text{sym}}$, chirality signature), chord dispersion energy $E$, polyatlas polygon profile, and the full relational \emph{block manifest}.
     
     \item \textbf{Relational Block Bridge (\path{data/mosaic_blocks.tsv})}:
     Contains exactly $1{,}983$ records (one per constituent block across all $509$ canonical mosaics), linking every individual block directly into the inscribed polygon census of \path{polyatlas/data/inngons.tsv}.
@@ -74,28 +74,28 @@ Concatenating these block tokens across the partition yields the self-contained 
 \footnotesize
 \setlength{\tabcolsep}{2.8pt}
 \caption{\label{tab:sample-manifests}Exemplar Mosaic Orbits across $\mathbb{Z}_1..\mathbb{Z}_8$ and their Relational Manifests}
-\begin{tabular}{r c c l c l l}
+\begin{tabular}{c r c l c l l}
 \toprule
-ID & Ring & Shape $\lambda$ & Canonical Mosaic & $|\mathcal{O}|$ & Polygon Profile & Relational Embedding Manifest \\
+Ring & ID & Shape $\lambda$ & Canonical Mosaic & $|\mathcal{O}|$ & Polygon Profile & Relational Embedding Manifest \\
 \midrule
-1 & $\mathbb{Z}_1$ & $(1)$ & \texttt{/0/} & 1 & $1\text{-}1$ & \texttt{1-1@0+:1} \\
-2 & $\mathbb{Z}_2$ & $(2)$ & \texttt{/01/} & 1 & $2\text{-}1$ & \texttt{2-1@0+:11} \\
-3 & $\mathbb{Z}_2$ & $(1,1)$ & \texttt{/0/1/} & 1 & $1\text{-}1 + 1\text{-}1$ & \texttt{1-1@0+:2/1-1@1+:2} \\
-4 & $\mathbb{Z}_3$ & $(3)$ & \texttt{/012/} & 1 & $3\text{-}1$ & \texttt{3-1@0+:111} \\
-5 & $\mathbb{Z}_3$ & $(2,1)$ & \texttt{/0/12/} & 3 & $1\text{-}1 + 2\text{-}1$ & \texttt{1-1@0+:3/2-1@1+:12} \\
-7 & $\mathbb{Z}_4$ & $(4)$ & \texttt{/0123/} & 1 & $4\text{-}1$ & \texttt{4-1@0+:1111} \\
-9 & $\mathbb{Z}_4$ & $(2,2)$ & \texttt{/02/13/} & 1 & $2\text{-}2 + 2\text{-}2$ & \texttt{2-2@0+:22/2-2@1+:22} \\
-10 & $\mathbb{Z}_4$ & $(2,2)$ & \texttt{/01/23/} & 2 & $2\text{-}1 + 2\text{-}1$ & \texttt{2-1@0+:13/2-1@2+:13} \\
-26 & $\mathbb{Z}_6$ & $(6)$ & \texttt{/012345/} & 1 & $6\text{-}1$ & \texttt{6-1@0+:111111} \\
-31 & $\mathbb{Z}_6$ & $(3,3)$ & \texttt{/024/135/} & 1 & $3\text{-}2 + 3\text{-}2$ & \texttt{3-2@0+:222/3-2@1+:222} \\
-33 & $\mathbb{Z}_6$ & $(3,3)$ & \texttt{/013/245/} & 6 & $3\text{-}3 + 3\text{-}3$ & \texttt{3-3@0+:123/3-3@2-:213} \\
-156 & $\mathbb{Z}_8$ & $(8)$ & \texttt{/01234567/} & 1 & $8\text{-}1$ & \texttt{8-1@0+:11111111} \\
-168 & $\mathbb{Z}_8$ & $(4,4)$ & \texttt{/0246/1357/} & 1 & $4\text{-}6 + 4\text{-}6$ & \texttt{4-6@0+:2222/4-6@1+:2222} \\
-382 & $\mathbb{Z}_8$ & $(2^4)$ & \texttt{/01/25/37/46/} & 16 & $2\text{-}1{+}2\text{-}2{+}2\text{-}3{+}2\text{-}4$ & \texttt{2-1@0+:17/2-3@2+:35/2-4@3+:44/2-2@4+:26} \\
+$\mathbb{Z}_1$ & 1 & $(1)$ & \texttt{/0/} & 1 & $1\text{-}1$ & \texttt{1-1@0+:1} \\
+$\mathbb{Z}_2$ & 1 & $(2)$ & \texttt{/01/} & 1 & $2\text{-}1$ & \texttt{2-1@0+:11} \\
+$\mathbb{Z}_2$ & 2 & $(1,1)$ & \texttt{/0/1/} & 1 & $1\text{-}1 + 1\text{-}1$ & \texttt{1-1@0+:2/1-1@1+:2} \\
+$\mathbb{Z}_3$ & 1 & $(3)$ & \texttt{/012/} & 1 & $3\text{-}1$ & \texttt{3-1@0+:111} \\
+$\mathbb{Z}_3$ & 2 & $(2,1)$ & \texttt{/0/12/} & 3 & $1\text{-}1 + 2\text{-}1$ & \texttt{1-1@0+:3/2-1@1+:12} \\
+$\mathbb{Z}_4$ & 1 & $(4)$ & \texttt{/0123/} & 1 & $4\text{-}1$ & \texttt{4-1@0+:1111} \\
+$\mathbb{Z}_4$ & 3 & $(2,2)$ & \texttt{/02/13/} & 1 & $2\text{-}2 + 2\text{-}2$ & \texttt{2-2@0+:22/2-2@1+:22} \\
+$\mathbb{Z}_4$ & 4 & $(2,2)$ & \texttt{/01/23/} & 2 & $2\text{-}1 + 2\text{-}1$ & \texttt{2-1@0+:13/2-1@2+:13} \\
+$\mathbb{Z}_6$ & 1 & $(6)$ & \texttt{/012345/} & 1 & $6\text{-}1$ & \texttt{6-1@0+:111111} \\
+$\mathbb{Z}_6$ & 6 & $(3,3)$ & \texttt{/024/135/} & 1 & $3\text{-}2 + 3\text{-}2$ & \texttt{3-2@0+:222/3-2@1+:222} \\
+$\mathbb{Z}_6$ & 8 & $(3,3)$ & \texttt{/013/245/} & 6 & $3\text{-}3 + 3\text{-}3$ & \texttt{3-3@0+:123/3-3@2-:213} \\
+$\mathbb{Z}_8$ & 1 & $(8)$ & \texttt{/01234567/} & 1 & $8\text{-}1$ & \texttt{8-1@0+:11111111} \\
+$\mathbb{Z}_8$ & 13 & $(4,4)$ & \texttt{/0246/1357/} & 1 & $4\text{-}6 + 4\text{-}6$ & \texttt{4-6@0+:2222/4-6@1+:2222} \\
+$\mathbb{Z}_8$ & 227 & $(2^4)$ & \texttt{/01/25/37/46/} & 16 & $2\text{-}1{+}2\text{-}2{+}2\text{-}3{+}2\text{-}4$ & \texttt{2-1@0+:17/2-3@2+:35/2-4@3+:44/2-2@4+:26} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-In Mosaic 33 on $\mathbb{Z}_6$, for example, the two chiral triangles partition the hexagon as an enantiomorphic direct-and-reflected pair (\texttt{3-3@0+:123} and \texttt{3-3@2-:213}). In Mosaic 382 on $\mathbb{Z}_8$, the four digon chords span four distinct circular distance classes ($1, 4, 3, 2$), realising the cyclic Skolem sequence through four distinct polyatlas classes ($2\text{-}1, 2\text{-}2, 2\text{-}3, 2\text{-}4$).
+In Mosaic 8 on $\mathbb{Z}_6$, for example, the two chiral triangles partition the hexagon as an enantiomorphic direct-and-reflected pair (\texttt{3-3@0+:123} and \texttt{3-3@2-:213}). In Mosaic 227 on $\mathbb{Z}_8$, the four digon chords span four distinct circular distance classes ($1, 4, 3, 2$), realising the cyclic Skolem sequence through four distinct polyatlas classes ($2\text{-}1, 2\text{-}2, 2\text{-}3, 2\text{-}4$).
 
 The complete visual plates displaying all $509$ mosaics follow in Chapter~\ref{chap:visual-atlas}.
