@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper,openany]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{geometry}
+\geometry{a4paper, left=2.2cm, right=2.2cm, top=2.5cm, bottom=2.5cm}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdfpages}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage{xcolor}
+\definecolor{mosaicblue}{RGB}{74, 128, 196}
+\definecolor{mosaicpink}{RGB}{224, 102, 102}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, calc}
+
+\usepackage[pdfusetitle, hidelinks, colorlinks=true, linkcolor=blue!70!black, citecolor=blue!70!black, urlcolor=blue!70!black]{hyperref}
+
+\title{\textbf{An Atlas of Composition Mosaics}\\[0.4em]
+\Large The Complete Dihedral Universe from $\mathbb{Z}_1$ to $\mathbb{Z}_8$}
+\author{Gemma Knee \and Antigra Vitti}
+\date{November 2026}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\input{sec/Preface.tex}
+
+\tableofcontents
+
+\mainmatter
+
+\input{sec/LatticeArchitecture.tex}
+\input{sec/CanonicalTaxonomy.tex}
+\input{sec/VisualAtlas.tex}
+
+\backmatter
+\bibliographystyle{plain}
+\bibliography{octatlas}
+
+\end{document}
