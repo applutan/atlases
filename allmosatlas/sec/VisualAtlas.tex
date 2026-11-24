@@ -27,14 +27,29 @@ Each drawing portrays an individual dihedral orbit through its canonical represe
 \end{itemize}
 
 \clearpage
-\includepdf[
-  pages=-,
-  offset=0 -16mm,
-  pagecommand={\thispagestyle{headings}},
-  addtotoc={
-     1, section, 1, {The Small Cyclic Lattices \texorpdfstring{($\mathbb{Z}_1$ through $\mathbb{Z}_5$)}{}}, sec:ring-z1-z5,
-     2, section, 1, {The Hexagonal Lattice \texorpdfstring{$\mathbb{Z}_6$}{Z6}}, sec:ring-z6,
-     3, section, 1, {The Heptagonal Lattice \texorpdfstring{$\mathbb{Z}_7$}{Z7}}, sec:ring-z7,
-     5, section, 1, {The Octagonal Lattice \texorpdfstring{$\mathbb{Z}_8$}{Z8}}, sec:ring-z8
-  }
-]{plates/plates_z1_z8.pdf}
+\refstepcounter{section}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}The Small Cyclic Lattices \texorpdfstring{($\mathbb{Z}_1$ through $\mathbb{Z}_5$)}{}}
+\label{sec:ring-z1-z5}
+\markboth{3.1.\quad THE SMALL CYCLIC LATTICES \texorpdfstring{($\mathbb{Z}_1$ THROUGH $\mathbb{Z}_5$)}{Z1 THROUGH Z5}}{3.1.\quad THE SMALL CYCLIC LATTICES \texorpdfstring{($\mathbb{Z}_1$ THROUGH $\mathbb{Z}_5$)}{Z1 THROUGH Z5}}
+\includepdf[pages=1, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
+
+\clearpage
+\refstepcounter{section}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}The Hexagonal Lattice \texorpdfstring{$\mathbb{Z}_6$}{Z6}}
+\label{sec:ring-z6}
+\markboth{3.2.\quad THE HEXAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_6$}{Z6}}{3.2.\quad THE HEXAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_6$}{Z6}}
+\includepdf[pages=2, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
+
+\clearpage
+\refstepcounter{section}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}The Heptagonal Lattice \texorpdfstring{$\mathbb{Z}_7$}{Z7}}
+\label{sec:ring-z7}
+\markboth{3.3.\quad THE HEPTAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_7$}{Z7}}{3.3.\quad THE HEPTAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_7$}{Z7}}
+\includepdf[pages=3-4, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}
+
+\clearpage
+\refstepcounter{section}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection}The Octagonal Lattice \texorpdfstring{$\mathbb{Z}_8$}{Z8}}
+\label{sec:ring-z8}
+\markboth{3.4.\quad THE OCTAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_8$}{Z8}}{3.4.\quad THE OCTAGONAL LATTICE \texorpdfstring{$\mathbb{Z}_8$}{Z8}}
+\includepdf[pages=5-10, offset=0 -16mm, pagecommand={\thispagestyle{headings}}]{plates/plates_z1_z8.pdf}

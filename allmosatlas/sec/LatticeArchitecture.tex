@@ -101,16 +101,27 @@ Consequently, the orbit polynomial is identically preserved under singleton repl
 \begin{equation}
 Q_{(b_1, \dots, b_{s-1}, a)}(\omega) \equiv Q_{(b_1, \dots, b_{s-1}, 1^a)}(\omega)
 \end{equation}
-This duality creates exact isomorphisms between coarse and fine partition shapes across every ring:
+
+In particular, for any two-block partition shape $n = a + b$ with distinct block cardinalities $a \ne b$, complementation on the Boolean lattice of subsets induces a \textbf{tripartite shattering triad}:
+\begin{equation}
+z_a z_b \;\longleftrightarrow\; z_a z_1^b \;\longleftrightarrow\; z_b z_1^a
+\end{equation}
+Because any lattice isometry $g \in D_n$ fixes a block $A$ setwise if and only if it fixes its complement $B = A^c$, and because $a \ne b$ prevents $g$ from interchanging $A$ and $B$, the stabiliser subgroups satisfy:
+\begin{equation}
+\operatorname{Stab}_{D_n}(\{A, B\}) = \operatorname{Stab}_{D_n}(A) = \operatorname{Stab}_{D_n}(B) = \operatorname{Stab}_{D_n}(\{A\} \cup \{\{v\} \mid v \in B\})
+\end{equation}
+Hence all three partition shapes share identical orbit polynomials $Q(\omega)$ across all cyclic lattices:
 \begin{align}
 \text{On } \mathbb{Z}_4\colon \quad z_4 &\longleftrightarrow z_1^4 && (1\omega^1) \\
 \text{On } \mathbb{Z}_5\colon \quad z_5 &\longleftrightarrow z_1^5 && (1\omega^1) \\
 \text{On } \mathbb{Z}_6\colon \quad z_6 &\longleftrightarrow z_1^6 && (1\omega^1) \\
-z_2 z_4 &\longleftrightarrow z_1^4 z_2 && (2\omega^6 + \omega^2) \\
+z_2 z_4 &\longleftrightarrow z_2 z_1^4 \longleftrightarrow z_4 z_1^2 && (1\omega^3 + 2\omega^6) \\
+\text{On } \mathbb{Z}_7\colon \quad z_2 z_5 &\longleftrightarrow z_2 z_1^5 \longleftrightarrow z_5 z_1^2 && (3\omega^7) \\
+z_3 z_4 &\longleftrightarrow z_3 z_1^4 \longleftrightarrow z_4 z_1^3 && (3\omega^7 + 1\omega^{14}) \\
 \text{On } \mathbb{Z}_8\colon \quad z_8 &\longleftrightarrow z_1^8 && (1\omega^1) \\
-z_2 z_6 &\longleftrightarrow z_1^6 z_2 && (3\omega^8 + \omega^4) \\
-z_3 z_5 &\longleftrightarrow z_1^5 z_3 && (2\omega^{16} + 3\omega^8) \\
-z_2^2 z_4 &\longleftrightarrow z_1^4 z_2^2 && (7\omega^{16} + 10\omega^8 + 4\omega^4 + \omega^2)
+z_2 z_6 &\longleftrightarrow z_2 z_1^6 \longleftrightarrow z_6 z_1^2 && (1\omega^4 + 3\omega^8) \\
+z_3 z_5 &\longleftrightarrow z_3 z_1^5 \longleftrightarrow z_5 z_1^3 && (3\omega^8 + 2\omega^{16}) \\
+z_2^2 z_4 &\longleftrightarrow z_2^2 z_1^4 && (1\omega^2 + 4\omega^4 + 10\omega^8 + 7\omega^{16})
 \end{align}
 
 \section{Circular Chord Energy}
