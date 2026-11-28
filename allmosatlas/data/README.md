@@ -2,7 +2,7 @@
 
 This dataset provides the complete census and combinatorial classification of all **219,467** non-equivalent dihedral composition mosaics (set partitions up to rotation and reflection) across circular rings $\mathbb{Z}_1$ through $\mathbb{Z}_{12}$ under the physical symmetries of the dihedral groups $D_n$.
 
-Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral Universe from* $\mathbb{Z}_1$ *to* $\mathbb{Z}_8$ *(Gemma Knee & Antigra Vitti, November 2026).* The first 509 records in this dataset correspond directly to the 509 visual cartouches in Chapter 3.
+Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral Universe from* $\mathbb{Z}_1$ *to* $\mathbb{Z}_9$ *(Gemma Knee & Antigra Vitti, November 2026).* The first 1,859 records in this dataset correspond directly to the 1,859 visual cartouches in Chapter 3.
 
 ---
 

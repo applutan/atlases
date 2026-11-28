@@ -35,3 +35,6 @@ __pycache__/
 Thumbs.db
 *.swp
 *.swo
+
+# Work in progress treatises
+polyatlas/polyhopf.*
