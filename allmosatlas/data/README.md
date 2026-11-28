@@ -1,35 +1,39 @@
 # Composition Mosaics Dihedral Orbit Dataset (`mosaics`)
 
-This dataset provides the complete, authoritative census and combinatorial classification of all **509** non-equivalent dihedral composition mosaics (set partitions up to rotation and reflection) across circular rings $\mathbb{Z}\_1$ through $\mathbb{Z}\_8$ under the physical symmetries of the dihedral groups $D\_n$.
+This dataset provides the complete census and combinatorial classification of all **219,467** non-equivalent dihedral composition mosaics (set partitions up to rotation and reflection) across circular rings $\mathbb{Z}_1$ through $\mathbb{Z}_{12}$ under the physical symmetries of the dihedral groups $D_n$.
 
-Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral Universe from* $\mathbb{Z}\_1$ *to* $\mathbb{Z}\_8$ *(Gemma Knee & Antigra Vitti, November 2026).*
+Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral Universe from* $\mathbb{Z}_1$ *to* $\mathbb{Z}_8$ *(Gemma Knee & Antigra Vitti, November 2026).* The first 509 records in this dataset correspond directly to the 509 visual cartouches in Chapter 3.
 
 ---
 
 ## 1. Files in this Directory
 
-* [`mosaics.tsv`](mosaics.tsv): Tab-delimited master catalogue of all 509 dihedral composition mosaics (510 lines including header, RFC/GitHub Flat Data compliant).
+* [`mosaics.tsv`](mosaics.tsv): Tab-delimited master catalogue of all 219,467 dihedral composition mosaics (219,468 lines including header).
 * [`mosaics.csv`](mosaics.csv): Comma-separated values master table.
-* [`mosaics.json`](mosaics.json): Structured JSON array of all 509 mosaic record objects.
-* [`mosaic_blocks.tsv`](mosaic_blocks.tsv): Tab-delimited relational table of all 1,983 constituent blocks across all 509 mosaics, linking directly into `polyatlas` (1,984 lines including header).
+* [`mosaic_blocks.tsv`](mosaic_blocks.tsv): Tab-delimited relational table of all 1,202,459 constituent blocks across all 219,467 mosaics, linking directly into `polyatlas` (1,202,460 lines including header).
 * [`mosaic_blocks.csv`](mosaic_blocks.csv): Comma-separated values block relational table.
-* [`mosaic_blocks.json`](mosaic_blocks.json): Structured JSON array of all 1,983 block record objects.
+
+*Note: Verbose JSON serialization is omitted to avoid structural duplication and excessive file overhead.*
 
 ---
 
-## 2. Orbit Census Summary ($\mathbb{Z}\_1$ to $\mathbb{Z}\_8$)
+## 2. Orbit Census Summary ($\mathbb{Z}_1$ to $\mathbb{Z}_{12}$)
 
-| Ring $\mathbb{Z}\_n$ | $\lvert D\_n \rvert$ | Bell Partitions $B\_n$ | Shapes | Dihedral Mosaics | Orbit Size Decomposition $\sum a\_k \omega^k$ |
+| Ring $\mathbb{Z}_n$ | $\lvert D_n \rvert$ | Bell Partitions $B_n$ | Shapes | Dihedral Mosaics | Orbit Size Decomposition $\sum a_k \omega^k$ |
 | :---: | :---: | :---: | :---: | :---: | :--- |
-| $\mathbb{Z}\_1$ | 1 | 1 | 1 | **1** | $1\omega^1$ |
-| $\mathbb{Z}\_2$ | 2 | 2 | 2 | **2** | $2\omega^1$ |
-| $\mathbb{Z}\_3$ | 6 | 5 | 3 | **3** | $2\omega^1 + 1\omega^3$ |
-| $\mathbb{Z}\_4$ | 8 | 15 | 5 | **7** | $3\omega^1 + 2\omega^2 + 2\omega^4$ |
-| $\mathbb{Z}\_5$ | 10 | 52 | 7 | **12** | $2\omega^1 + 10\omega^5$ |
-| $\mathbb{Z}\_6$ | 12 | 203 | 11 | **37** | $4\omega^1 + 3\omega^2 + 6\omega^3 + 12\omega^6 + 12\omega^{12}$ |
-| $\mathbb{Z}\_7$ | 14 | 877 | 15 | **93** | $3\omega^1 + 28\omega^7 + 62\omega^{14}$ |
-| $\mathbb{Z}\_8$ | 16 | 4,140 | 22 | **354** | $4\omega^1 + 6\omega^2 + 27\omega^4 + 132\omega^8 + 185\omega^{16}$ |
-| **Total** | --- | **5,295** | **66** | **509** | OEIS sequence A084708 |
+| $\mathbb{Z}_1$ | 1 | 1 | 1 | **1** | $1\omega^1$ |
+| $\mathbb{Z}_2$ | 2 | 2 | 2 | **2** | $2\omega^1$ |
+| $\mathbb{Z}_3$ | 6 | 5 | 3 | **3** | $2\omega^1 + 1\omega^3$ |
+| $\mathbb{Z}_4$ | 8 | 15 | 5 | **7** | $3\omega^1 + 2\omega^2 + 2\omega^4$ |
+| $\mathbb{Z}_5$ | 10 | 52 | 7 | **12** | $2\omega^1 + 10\omega^5$ |
+| $\mathbb{Z}_6$ | 12 | 203 | 11 | **37** | $4\omega^1 + 3\omega^2 + 6\omega^3 + 12\omega^6 + 12\omega^{12}$ |
+| $\mathbb{Z}_7$ | 14 | 877 | 15 | **93** | $3\omega^1 + 28\omega^7 + 62\omega^{14}$ |
+| $\mathbb{Z}_8$ | 16 | 4,140 | 22 | **354** | $4\omega^1 + 6\omega^2 + 27\omega^4 + 132\omega^8 + 185\omega^{16}$ |
+| $\mathbb{Z}_9$ | 18 | 21,147 | 30 | **1,350** | $4\omega^1 + 27\omega^3 + 114\omega^9 + 1,205\omega^{18}$ |
+| $\mathbb{Z}_{10}$ | 20 | 115,975 | 42 | **6,351** | $4\omega^1 + 10\omega^2 + 134\omega^5 + 284\omega^{10} + 5,919\omega^{20}$ |
+| $\mathbb{Z}_{11}$ | 22 | 678,570 | 56 | **31,950** | $3\omega^1 + 678\omega^{11} + 31,269\omega^{22}$ |
+| $\mathbb{Z}_{12}$ | 24 | 4,213,597 | 77 | **179,307** | $6\omega^1 + 11\omega^2 + 76\omega^3 + 134\omega^4 + 750\omega^6 + 2,130\omega^{12} + 176,200\omega^{24}$ |
+| **Total** | --- | **5,034,584** | **271** | **219,467** | OEIS sequence A084708 |
 
 ---
 
@@ -37,12 +41,12 @@ Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral 
 
 | Field | Type | Example | Description |
 | :--- | :--- | :--- | :--- |
-| `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 8\}$. |
-| `id` | Integer | `227` | Canonical ring-local integer index ($1 \dots M\_n$). |
+| `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 12\}$. |
+| `id` | Integer | `227` | Canonical ring-local integer index ($1 \dots M_n$). |
 | `shape` | String | `(2,2,2,2)` | Integer partition shape $\lambda \vdash n$ in descending order. |
 | `slash` | String | `/01/25/37/46/` | Canonical partition representation in hexadecimal slash notation. |
-| `orbit_size` | Integer | `16` | Dihedral orbit length $\lvert \mathcal{O} \rvert \in \{1, \dots, \lvert D\_n \rvert\}$ under the action of $D\_n$. |
-| `stab_size` | Integer | `1` | Stabiliser subgroup order $\lvert D\_n \rvert / \lvert \mathcal{O} \rvert$. |
+| `orbit_size` | Integer | `16` | Dihedral orbit length $\lvert \mathcal{O} \rvert \in \{1, \dots, \lvert D_n \rvert\}$ under the action of $D_n$. |
+| `stab_size` | Integer | `1` | Stabiliser subgroup order $\lvert D_n \rvert / \lvert \mathcal{O} \rvert$. |
 | `s_count` | Integer | `4` | Number of bilaterally symmetric (achiral) constituent blocks. |
 | `chirality` | String | `ssss` | Chirality signature string recording achiral (`s`) and chiral (`c`) blocks. |
 | `energy` | Integer | `30` | Circular chord dispersion energy $E(\mathcal{M})$. |
@@ -55,15 +59,15 @@ Accompanying monograph: *An Atlas of Composition Mosaics: The Complete Dihedral 
 
 | Field | Type | Example | Description |
 | :--- | :--- | :--- | :--- |
-| `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 8\}$. |
-| `mosaic_id` | Integer | `227` | Parent mosaic index within ring $\mathbb{Z}\_n$ ($1 \dots M\_n$). |
+| `n` | Integer | `8` | Cyclic ring order $n \in \{1, \dots, 12\}$. |
+| `mosaic_id` | Integer | `227` | Parent mosaic index within ring $\mathbb{Z}_n$ ($1 \dots M_n$). |
 | `block_idx` | Integer | `2` | 1-based index of block within the canonical partition ($1 \dots s$). |
 | `vertices` | String | `25` | Hexadecimal vertex string of block $B$ in circular order. |
 | `size` | Integer | `2` | Block cardinality $d = \lvert B \rvert$. |
 | `poly_class` | String | `2-3` | Canonical polygon class identifier $k\text{-}i$ in `polyatlas` for ring $n$. |
 | `canon_comp` | String | `35` | Canonical circular stride composition of polygon class in `polyatlas`. |
 | `realised_comp` | String | `35` | Realised forward cyclic stride composition along block perimeter. |
-| `root` | Integer | `2` | Spatial root vertex $v\_0 = \min(B) \in \mathbb{Z}\_n$. |
+| `root` | Integer | `2` | Spatial root vertex $v_0 = \min(B) \in \mathbb{Z}_n$. |
 | `chirality` | String | `+` | Chirality orientation: `+` (direct cyclic translation) vs `-` (retrograde / flipped). |
 
 ---
@@ -75,9 +79,9 @@ Every constituent block embedding is encoded by a compact manifest token:
 [Class]@[Root][Chirality]:[Realised Strides]
 ```
 where:
-* **Class**: The canonical polygon class identifier $k\text{-}i$ in `polyatlas` (e.g. `3-3` for the chiral triangle on $\mathbb{Z}\_6$).
-* **Root**: The starting vertex $v\_0 = \min(B) \in \mathbb{Z}\_n$.
+* **Class**: The canonical polygon class identifier $k\text{-}i$ in `polyatlas` (e.g. `3-3` for the chiral triangle on $\mathbb{Z}_6$).
+* **Root**: The starting vertex $v_0 = \min(B) \in \mathbb{Z}_n$.
 * **Chirality**: Orientation sign relative to canonical form (`+` for direct rotational translation, `-` for retrograde / flipped).
-* **Realised Strides**: The forward cyclic strides along the perimeter of block $B$ starting from $v\_0$.
+* **Realised Strides**: The forward cyclic strides along the perimeter of block $B$ starting from $v_0$ in hexadecimal.
 
-For example, in Mosaic `8` on $\mathbb{Z}\_6$ (`/013/245/`), the manifest is `3-3@0+:123/3-3@2-:213`, showing that the two chiral scalene triangles partition the hexagon as an enantiomorphic direct-and-reflected pair. In Mosaic `227` on $\mathbb{Z}\_8$ (`/01/25/37/46/`), the four chords realise the cyclic Skolem sequence spanning distances 1, 2, 3, 4 through classes `2-1`, `2-2`, `2-3`, and `2-4`.
+For example, in Mosaic `8` on $\mathbb{Z}_6$ (`/013/245/`), the manifest is `3-3@0+:123/3-3@2-:213`, showing that the two chiral scalene triangles partition the hexagon as an enantiomorphic direct-and-reflected pair. In Mosaic `227` on $\mathbb{Z}_8$ (`/01/25/37/46/`), the four chords realise the cyclic Skolem sequence spanning distances 1, 2, 3, 4 through classes `2-1`, `2-2`, `2-3`, and `2-4`.

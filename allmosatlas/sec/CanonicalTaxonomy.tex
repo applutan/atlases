@@ -3,10 +3,10 @@
 
 \section{Taxonomic Ordering Principles}
 
-The $509$ dihedral composition mosaics across $\mathbb{Z}_1$ through $\mathbb{Z}_8$ are organised according to a four-tier hierarchical classification:
+The $1{,}859$ dihedral composition mosaics across $\mathbb{Z}_1$ through $\mathbb{Z}_9$ are organised according to a four-tier hierarchical classification:
 
 \begin{enumerate}
-    \item \textbf{Tier 1 (Lattice Ring Progression)}: Mosaics are stratified primarily by the underlying circular lattice order $n \in \{1, 2, \dots, 8\}$.
+    \item \textbf{Tier 1 (Lattice Ring Progression)}: Mosaics are stratified primarily by the underlying circular lattice order $n \in \{1, 2, \dots, 9\}$.
     
     \item \textbf{Tier 2 (Part-Count Stratification)}: Within each ring $\mathbb{Z}_n$, mosaics are stratified by the number of constituent blocks $s = \ell(\lambda) \in \{1, \dots, n\}$, corresponding to the Stirling numbers of the second kind.
     
@@ -30,21 +30,50 @@ Every orbit is assigned a canonical integer identifier $1 \dots M_n$ on its resp
 
 \section{Stratified Partition Shape Inventory}
 
-Table~\ref{tab:shape-census-z1-z8} details the complete partition shape inventory across all eight rings $\mathbb{Z}_1$ through $\mathbb{Z}_8$, recording the number of set partitions $p_\lambda$, the number of non-equivalent dihedral mosaics, the shape monomial $\mathbf{z}^\lambda$, and the bivariate orbit polynomial $Q_\lambda(\omega)$.
+Tables~\ref{tab:shape-census-z1-z6} through~\ref{tab:shape-census-z12} record the stratified partition shape inventory across the twelve rings $\mathbb{Z}_1$ through $\mathbb{Z}_{12}$ ($271$ integer partition shapes in total). In each table, the block-size partition shape monomial $\mathbf{z}^\lambda = \prod_{i=1}^n z_i^{c_i}$ serves as the primary row index; $\#p$ records the Fa\`a di Bruno multinomial count of set partitions of shape $\lambda \vdash n$; $\#o$ records the number of non-equivalent dihedral mosaic orbits; and $Q_\lambda(\omega) = \sum_{k \mid 2n} a_{k,\lambda} \omega^k$ is the bivariate dihedral orbit polynomial. Horizontal rules separate partition shapes of different part counts $s = \ell(\lambda) \in \{1, \dots, n\}$. Summing the stratified polynomial blocks on each ring $\mathbb{Z}_n$ recovers the aggregate orbit polynomial $\sum a_k \omega^k$ of Table~\ref{tab:census-z1-z16}.
 
-\input{gen/shape_census_z1_z8.tex}
+\subsection*{Orbit Counts and Partition Derivatives}
+
+A direct connection links the orbit polynomial $Q_\lambda(\omega) = \sum_{k \mid 2n} a_{k,\lambda} \omega^k$ to the scalar counts $\#o$ and $\#p$ through differential calculus:
+
+\begin{enumerate}\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+    \item \textbf{The Orbit Count Evaluation ($Q_\lambda(1) = \#o$)}:
+    Setting $\omega = 1$ collapses every power $\omega^k \mapsto 1^k = 1$, leaving the unweighted sum of coefficients:
+    \begin{equation}
+    Q_\lambda(1) = \sum_{k \mid 2n} a_{k,\lambda} = \#o
+    \end{equation}
+    Evaluating at unity simply counts the total number of non-equivalent mosaic orbits of shape $\lambda$.
+
+    \item \textbf{The Raw Partition Derivative ($Q_\lambda'(1) = \#p$)}:
+    Differentiating $Q_\lambda(\omega)$ with respect to $\omega$ invokes the elementary power rule $\frac{d}{d\omega}(\omega^k) = k \omega^{k-1}$. Evaluating the resulting derivative at $\omega = 1$ yields:
+    \begin{equation}
+    Q_\lambda'(1) = \left. \frac{d}{d\omega} Q_\lambda(\omega) \right|_{\omega = 1} = \sum_{k \mid 2n} k \cdot a_{k,\lambda} = \#p
+    \end{equation}
+    Because each orbit of length $k$ comprises exactly $k$ distinct set partitions, the differentiation operator $\frac{d}{d\omega}$ mechanically weights each orbit by its cardinality $k = [D_n : \operatorname{Stab}(\mathcal{M})]$. The derivative $Q_\lambda'(1)$ thus reconstructs the full Fa\`a di Bruno multinomial count $\#p$ from the orbit polynomial.
+\end{enumerate}
+
+\noindent\textbf{Exemplar}\\[0.2em]
+For the chord-pair shape $z_2^2$ on the square lattice $\mathbb{Z}_4$ (Table~\ref{tab:shape-census-z1-z6}), $Q_{z_2^2}(\omega) = 1\omega^1 + 1\omega^2$. Evaluating directly gives $Q_{z_2^2}(1) = 1(1)^1 + 1(1)^2 = 2 = \#o$. Differentiating and evaluating at $\omega = 1$:
+\begin{equation}
+Q_{z_2^2}'(\omega) = 1 + 2\omega \implies Q_{z_2^2}'(1) = 1 + 2(1) = 3 = \#p
+\end{equation}
+recovering the $3$ set partitions into two chords.
+
+Summing across all shapes on ring $\mathbb{Z}_n$ yields the aggregate polynomial $Q_n(\omega) = \sum a_k \omega^k$ of Table~\ref{tab:census-z1-z16}. The same evaluation rules give $Q_n(1) = M_n$ for the dihedral mosaic count (OEIS A084708) and $Q_n'(1) = B_n$ for the $n$-th Bell number (OEIS A000110).
+
+\input{gen/shape_census_z1_z12.tex}
 
 \section{The Relational Datasets and Embedding Manifest}
 \label{sec:relational-datasets}
 
-To provide exhaustive machine-readable accessibility for computational mathematics, the complete analytical inventory across all $509$ mosaics has been structured into two normalised, greppable tab-separated tables housed in \path{data/}:
+The complete analytical inventory across all $219{,}467$ dihedral mosaics on $\mathbb{Z}_1$ through $\mathbb{Z}_{12}$ is structured into two normalised, greppable tables housed in \path{data/} (provided in tab-separated \texttt{.tsv} and comma-separated \texttt{.csv} formats):
 
 \begin{enumerate}
-    \item \textbf{Master Mosaic Catalogue (\path{data/mosaics.tsv})}:
-    Contains exactly $509$ records (one per dihedral orbit), cataloguing the ring order $n$, local ID ($1 \dots M_n$), shape $\lambda$, canonical slash representation, dihedral invariants ($|\mathcal{O}|$, $|\operatorname{Stab}|$, $s_{\text{sym}}$, chirality signature), chord dispersion energy $E$, polyatlas polygon profile, and the full relational \emph{block manifest}.
+    \item \textbf{Master Mosaic Catalogue (\path{data/mosaics.tsv}, \path{data/mosaics.csv})}:
+    Contains all $219{,}467$ records across $\mathbb{Z}_1..\mathbb{Z}_{12}$ ($509$ records on $\mathbb{Z}_1..\mathbb{Z}_8$, $1{,}350$ on $\mathbb{Z}_9$, $6{,}351$ on $\mathbb{Z}_{10}$, $31{,}950$ on $\mathbb{Z}_{11}$, and $179{,}307$ on $\mathbb{Z}_{12}$). Fields include ring order $n$, ring-local ID ($1 \dots M_n$), shape $\lambda$, canonical slash representation, dihedral invariants ($|\mathcal{O}|$, $|\operatorname{Stab}|$, $s_{\text{sym}}$, chirality signature), circular chord energy $E$, polyatlas polygon profile, and the relational \emph{block manifest}. The first $1{,}859$ records correspond directly to the visual plates in Chapter~\ref{chap:visual-atlas}.
     
-    \item \textbf{Relational Block Bridge (\path{data/mosaic_blocks.tsv})}:
-    Contains exactly $1{,}983$ records (one per constituent block across all $509$ canonical mosaics), linking every individual block directly into the inscribed polygon census of \path{polyatlas/data/inngons.tsv}.
+    \item \textbf{Relational Block Bridge (\path{data/mosaic_blocks.tsv}, \path{data/mosaic_blocks.csv})}:
+    Contains all constituent blocks across the $219{,}467$ canonical mosaics, linking every block directly into the single inscribed polygon census of \path{polyatlas/data/inngons.tsv}.
 \end{enumerate}
 
 \noindent\textbf{The Block Embedding Manifest}\\[0.4em]

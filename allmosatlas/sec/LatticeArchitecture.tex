@@ -44,11 +44,12 @@ p_\lambda = \frac{n!}{\prod_{i=1}^n (i!)^{c_i} \, c_i!}
 \end{equation}
 where $c_i = c_i(\lambda)$ is the multiplicity of parts of size $i$ in $\lambda$.
 
-Across the first eight rings $\mathbb{Z}_1$ through $\mathbb{Z}_8$, the Bell numbers grow rapidly:
-\begin{equation*}
-B_1 = 1, \quad B_2 = 2, \quad B_3 = 5, \quad B_4 = 15, \quad B_5 = 52, \quad B_6 = 203, \quad B_7 = 877, \quad B_8 = 4{,}140
-\end{equation*}
-yielding a total combinatorial universe of exactly $5{,}295$ set partitions.
+Across the first nine rings $\mathbb{Z}_1$ through $\mathbb{Z}_9$, the Bell numbers grow rapidly:
+\begin{gather*}
+B_1 = 1, \quad B_2 = 2, \quad B_3 = 5, \quad B_4 = 15, \quad B_5 = 52 \\
+B_6 = 203, \quad B_7 = 877, \quad B_8 = 4{,}140, \quad B_9 = 21{,}147
+\end{gather*}
+yielding a core combinatorial universe of $26{,}442$ set partitions across $96$ integer partition shapes. Extending this progression through $\mathbb{Z}_{16}$ reveals the full exponential escalation of the partition continuum, reaching $B_{16} = 10{,}480{,}142{,}147$ and encompassing a cumulative universe of $12{,}086{,}679{,}035$ set partitions across $914$ partition shapes.
 
 \section{The Dihedral Orbit Inventory and Burnsidean Enumeration}
 
@@ -67,9 +68,9 @@ Summing the orbit multiplicities $a_{k,\lambda}$ yields the graded bivariate orb
 \begin{equation}
 P_n(\mathbf{z}, \omega) = \sum_{\lambda \vdash n} Q_\lambda(\omega) \mathbf{z}^\lambda = \sum_{\lambda \vdash n} \left( \sum_{k \mid |D_n|} a_{k,\lambda} \omega^k \right) \mathbf{z}^\lambda
 \end{equation}
-Evaluating this polynomial at $\omega = 1$ recovers the total count $M_n$ of non-equivalent dihedral composition mosaics on $\mathbb{Z}_n$. Table~\ref{tab:census-z1-z8} presents the consolidated inventory across the eight lattices, recovering the initial terms of OEIS sequence A084708 and establishing the grand total of $\mathbf{509}$ non-equivalent dihedral composition mosaics.
+Evaluating this polynomial at $\omega = 1$ recovers the total count $M_n$ of non-equivalent dihedral composition mosaics on $\mathbb{Z}_n$. Table~\ref{tab:census-z1-z16} presents the consolidated inventory across the sixteen rings $\mathbb{Z}_1$ through $\mathbb{Z}_{16}$, recovering the initial sixteen terms of OEIS sequence A084708 and establishing the grand total of $\mathbf{382{,}030{,}946}$ non-equivalent dihedral composition mosaics (of which the initial nine rings comprise the $1{,}859$ visually catalogued mosaics of the core atlas).
 
-\input{gen/census_summary_z1_z8.tex}
+\input{gen/census_summary_z1_z16.tex}
 
 \section{The Bilateral Symmetry Classification}
 

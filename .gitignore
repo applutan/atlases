@@ -3,6 +3,7 @@
 *.log
 *.toc
 *.lof
+*.lot
 *.loe
 *.out
 *.idx
@@ -20,6 +21,10 @@ unimosatlas/plates/tetramers_part*.pdf
 # Compiled C++ executables
 unimosatlas/tools/build_tetramers_atlas
 unimosatlas/tools/generate_all_tetramers
+allmosatlas/tools/compute_shape_census
+allmosatlas/tools/generate_extended_relational_data
+allmosatlas/tools/generate_extended_shape_census
+allmosatlas/tools/solve_z16_exact
 
 # Python cache & temp files
 __pycache__/
